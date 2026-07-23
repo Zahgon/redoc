@@ -29,59 +29,6 @@ export const ObjectSchema = observer(
     level,
     fieldParentsName,
   }: ObjectSchemaProps) => {
-    const { expandSingleSchemaField, showObjectSchemaExamples, schemasExpansionLevel } =
-      React.useContext(OptionsContext);
-
-    const filteredFields = React.useMemo(
-      () =>
-        skipReadOnly || skipWriteOnly
-          ? fields.filter(
-              item =>
-                !(
-                  (skipReadOnly && item.schema.readOnly) ||
-                  (skipWriteOnly && item.schema.writeOnly)
-                ),
-            )
-          : fields,
-      [skipReadOnly, skipWriteOnly, fields],
-    );
-
-    const expandByDefault =
-      (expandSingleSchemaField && filteredFields.length === 1) || schemasExpansionLevel >= level!;
-
-    return (
-      <PropertiesTable>
-        {showTitle && <PropertiesTableCaption>{title}</PropertiesTableCaption>}
-        <tbody>
-          {mapWithLast(filteredFields, (field, isLast) => {
-            return (
-              <Field
-                key={field.name}
-                isLast={isLast}
-                field={field}
-                expandByDefault={expandByDefault}
-                fieldParentsName={Number(level) > 1 ? fieldParentsName : []}
-                renderDiscriminatorSwitch={
-                  discriminator?.fieldName === field.name
-                    ? () => (
-                        <DiscriminatorDropdown
-                          parent={discriminator!.parentSchema}
-                          enumValues={field.schema.enum}
-                        />
-                      )
-                    : undefined
-                }
-                className={field.expanded ? 'expanded' : undefined}
-                showExamples={showObjectSchemaExamples}
-                skipReadOnly={skipReadOnly}
-                skipWriteOnly={skipWriteOnly}
-                showTitle={showTitle}
-                level={level}
-              />
-            );
-          })}
-        </tbody>
-      </PropertiesTable>
-    );
-  },
+        throw new Error("STUB");
+    },
 );

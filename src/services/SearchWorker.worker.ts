@@ -31,7 +31,7 @@ function initEmpty() {
   builder.pipeline.add(lunr.trimmer, lunr.stopWordFilter, lunr.stemmer);
 
   index = new Promise(resolve => {
-    resolveIndex = resolve;
+      throw new Error("STUB");
   });
 }
 
@@ -49,7 +49,7 @@ export function add<T>(title: string, description: string, meta?: T) {
 }
 
 export async function done() {
-  resolveIndex(builder.build());
+    throw new Error("STUB");
 }
 
 export async function toJS() {
@@ -60,16 +60,7 @@ export async function toJS() {
 }
 
 export async function fromExternalJS(path: string, exportName: string) {
-  try {
-    importScripts(path);
-    if (!self[exportName]) {
-      throw new Error('Broken index file format');
-    }
-
-    load(self[exportName]);
-  } catch (e) {
-    console.error('Failed to load search index: ' + e.message);
-  }
+    throw new Error("STUB");
 }
 
 export async function load(state: any) {
@@ -91,19 +82,12 @@ export async function search<Meta = string>(
   }
 
   let searchResults = (await index).query(t => {
-    q.trim()
-      .toLowerCase()
-      .split(/\s+/)
-      .forEach(term => {
-        if (term.length === 1) return;
-        const exp = expandTerm(term);
-        t.term(exp, {});
-      });
+      throw new Error("STUB");
   });
 
   if (limit > 0) {
     searchResults = searchResults.slice(0, limit);
   }
 
-  return searchResults.map(res => ({ meta: store[res.ref], score: res.score }));
+  return searchResults.map(res => { throw new Error("STUB"); });
 }

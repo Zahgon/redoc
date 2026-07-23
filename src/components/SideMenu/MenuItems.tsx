@@ -28,9 +28,7 @@ export class MenuItems extends React.Component<MenuItemsProps> {
         $expanded={expanded}
         {...(root ? { role: 'menu' } : {})}
       >
-        {items.map((item, idx) => (
-          <MenuItem key={idx} item={item} onActivate={this.props.onActivate} />
-        ))}
+        {items.map((item, idx) => { throw new Error("STUB"); })}
       </MenuItemUl>
     );
   }

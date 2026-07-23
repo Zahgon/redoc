@@ -13,15 +13,7 @@ export function querySelector(selector: string): Element | null {
  * un-encoded `<` or `>` characters very well, so don't feed it malformed HTML
  */
 export function html2Str(html: string): string {
-  return html
-    .split(/<[^>]+>/)
-    .map(chunk => {
-      return chunk.trim();
-    })
-    .filter(trimmedChunk => {
-      return trimmedChunk.length > 0;
-    })
-    .join(' ');
+    throw new Error("STUB");
 }
 
 // Alternate scrollIntoViewIfNeeded implementation.

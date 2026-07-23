@@ -22,25 +22,14 @@ export class ResponseDetails extends React.PureComponent<{ response: ResponseMod
         <ResponseHeaders headers={headers} />
         <MediaTypesSwitch content={content} renderDropdown={this.renderDropdown}>
           {({ schema }) => {
-            return (
-              <>
-                {schema?.type === 'object' && (
-                  <ConstraintsView constraints={schema?.constraints || []} />
-                )}
-                <Schema skipWriteOnly={true} key="schema" schema={schema} />
-              </>
-            );
-          }}
+                    throw new Error("STUB");
+                }}
         </MediaTypesSwitch>
       </>
     );
   }
 
   private renderDropdown = props => {
-    return (
-      <UnderlinedHeader key="header">
-        Response Schema: <DropdownOrLabel {...props} />
-      </UnderlinedHeader>
-    );
+      throw new Error("STUB");
   };
 }

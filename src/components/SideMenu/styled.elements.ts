@@ -4,14 +4,12 @@ import { darken } from 'polished';
 import { deprecatedCss, ShelfIcon } from '../../common-elements';
 import styled, { css, media, ResolvedThemeInterface } from '../../styled-components';
 
-export const OperationBadge = styled.span.attrs((props: { type: string; color?: string }) => ({
-  className: `operation-type ${props.type}`,
-}))<{ type: string; color?: string }>`
+export const OperationBadge = styled.span.attrs((props: { type: string; color?: string }) => { throw new Error("STUB"); })<{ type: string; color?: string }>`
   width: 9ex;
   display: inline-block;
-  height: ${props => props.theme.typography.code.fontSize};
-  line-height: ${props => props.theme.typography.code.fontSize};
-  background-color: ${props => props.color || '#333'};
+  height: ${props => { throw new Error("STUB"); }};
+  line-height: ${props => { throw new Error("STUB"); }};
+  background-color: ${props => { throw new Error("STUB"); }};
   border-radius: 3px;
   background-repeat: no-repeat;
   background-position: 6px 4px;
@@ -26,47 +24,47 @@ export const OperationBadge = styled.span.attrs((props: { type: string; color?: 
   margin-top: 2px;
 
   &.get {
-    background-color: ${({ theme }) => theme.colors.http.get};
+    background-color: ${({ theme }) => { throw new Error("STUB"); }};
   }
 
   &.post {
-    background-color: ${({ theme }) => theme.colors.http.post};
+    background-color: ${({ theme }) => { throw new Error("STUB"); }};
   }
 
   &.put {
-    background-color: ${({ theme }) => theme.colors.http.put};
+    background-color: ${({ theme }) => { throw new Error("STUB"); }};
   }
 
   &.options {
-    background-color: ${({ theme }) => theme.colors.http.options};
+    background-color: ${({ theme }) => { throw new Error("STUB"); }};
   }
 
   &.patch {
-    background-color: ${({ theme }) => theme.colors.http.patch};
+    background-color: ${({ theme }) => { throw new Error("STUB"); }};
   }
 
   &.delete {
-    background-color: ${({ theme }) => theme.colors.http.delete};
+    background-color: ${({ theme }) => { throw new Error("STUB"); }};
   }
 
   &.basic {
-    background-color: ${({ theme }) => theme.colors.http.basic};
+    background-color: ${({ theme }) => { throw new Error("STUB"); }};
   }
 
   &.link {
-    background-color: ${({ theme }) => theme.colors.http.link};
+    background-color: ${({ theme }) => { throw new Error("STUB"); }};
   }
 
   &.head {
-    background-color: ${({ theme }) => theme.colors.http.head};
+    background-color: ${({ theme }) => { throw new Error("STUB"); }};
   }
 
   &.hook {
-    background-color: ${({ theme }) => theme.colors.primary.main};
+    background-color: ${({ theme }) => { throw new Error("STUB"); }};
   }
 
   &.schema {
-    background-color: ${({ theme }) => theme.colors.http.basic};
+    background-color: ${({ theme }) => { throw new Error("STUB"); }};
   }
 `;
 
@@ -96,7 +94,7 @@ export const MenuItemUl = styled.ul<{ $expanded: boolean }>`
     font-size: 0.929em;
   }
 
-  ${props => (props.$expanded ? '' : 'display: none;')};
+  ${props => { throw new Error("STUB"); }};
 `;
 
 export const MenuItemLi = styled.li<{ depth: number }>`
@@ -104,20 +102,20 @@ export const MenuItemLi = styled.li<{ depth: number }>`
   overflow: hidden;
   text-overflow: ellipsis;
   padding: 0;
-  ${props => (props.depth === 0 ? 'margin-top: 15px' : '')};
+  ${props => { throw new Error("STUB"); }};
 `;
 
 export const menuItemDepth = {
   0: css`
     opacity: 0.7;
-    text-transform: ${({ theme }) => theme.sidebar.groupItems.textTransform};
+    text-transform: ${({ theme }) => { throw new Error("STUB"); }};
     font-size: 0.8em;
     padding-bottom: 0;
     cursor: default;
   `,
   1: css`
     font-size: 0.929em;
-    text-transform: ${({ theme }) => theme.sidebar.level1Items.textTransform};
+    text-transform: ${({ theme }) => { throw new Error("STUB"); }};
   `,
 };
 
@@ -128,41 +126,33 @@ export interface MenuItemLabelType {
   $type?: string;
 }
 
-export const MenuItemLabel = styled.label.attrs((props: MenuItemLabelType) => ({
-  className: classnames('-depth' + props.$depth, {
-    active: props.$active,
-  }),
-}))<MenuItemLabelType>`
+export const MenuItemLabel = styled.label.attrs((props: MenuItemLabelType) => { throw new Error("STUB"); })<MenuItemLabelType>`
   cursor: pointer;
   color: ${props =>
-    props.$active
-      ? menuItemActive(props.$depth, props, 'activeTextColor')
-      : props.theme.sidebar.textColor};
+    { throw new Error("STUB"); }};
   margin: 0;
-  padding: 12.5px ${props => props.theme.spacing.unit * 4}px;
+  padding: 12.5px ${props => { throw new Error("STUB"); }}px;
   ${({ $depth, $type, theme }) =>
-    ($type === 'section' && $depth > 1 && 'padding-left: ' + theme.spacing.unit * 8 + 'px;') || ''}
+    { throw new Error("STUB"); }}
   display: flex;
   justify-content: space-between;
-  font-family: ${props => props.theme.typography.headings.fontFamily};
-  ${props => menuItemDepth[props.$depth]};
+  font-family: ${props => { throw new Error("STUB"); }};
+  ${props => { throw new Error("STUB"); }};
   background-color: ${props =>
-    props.$active
-      ? menuItemActive(props.$depth, props, 'activeBackgroundColor')
-      : props.theme.sidebar.backgroundColor};
+    { throw new Error("STUB"); }};
 
-  ${props => (props.$deprecated && deprecatedCss) || ''};
+  ${props => { throw new Error("STUB"); }};
 
   &:hover {
-    color: ${props => menuItemActive(props.$depth, props, 'activeTextColor')};
-    background-color: ${props => menuItemActive(props.$depth, props, 'activeBackgroundColor')};
+    color: ${props => { throw new Error("STUB"); }};
+    background-color: ${props => { throw new Error("STUB"); }};
   }
 
   ${ShelfIcon} {
-    height: ${({ theme }) => theme.sidebar.arrow.size};
-    width: ${({ theme }) => theme.sidebar.arrow.size};
+    height: ${({ theme }) => { throw new Error("STUB"); }};
+    width: ${({ theme }) => { throw new Error("STUB"); }};
     polygon {
-      fill: ${({ theme }) => theme.sidebar.arrow.color};
+      fill: ${({ theme }) => { throw new Error("STUB"); }};
     }
   }
 `;
@@ -170,33 +160,13 @@ export const MenuItemLabel = styled.label.attrs((props: MenuItemLabelType) => ({
 export const MenuItemTitle = styled.span<{ width?: string }>`
   display: inline-block;
   vertical-align: middle;
-  width: ${props => (props.width ? props.width : 'auto')};
+  width: ${props => { throw new Error("STUB"); }};
   overflow: hidden;
   text-overflow: ellipsis;
 `;
 
 export const RedocAttribution = styled.div`
-  ${({ theme }) => css`
-    font-size: 0.8em;
-    margin-top: ${theme.spacing.unit * 2}px;
-    text-align: center;
-    position: fixed;
-    width: ${theme.sidebar.width};
-    bottom: 0;
-    background: ${theme.sidebar.backgroundColor};
-
-    a,
-    a:visited,
-    a:hover {
-      color: ${theme.sidebar.textColor} !important;
-      padding: ${theme.spacing.unit}px 0;
-      border-top: 1px solid ${darken(0.1, theme.sidebar.backgroundColor)};
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-  `};
+  ${({ theme }) => { throw new Error("STUB"); }};
   img {
     width: 15px;
     margin-right: 5px;

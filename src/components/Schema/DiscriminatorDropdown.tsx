@@ -17,11 +17,11 @@ export class DiscriminatorDropdown extends React.Component<{
     const enumOrder = {};
 
     enumValues.forEach((enumItem, idx) => {
-      enumOrder[enumItem] = idx;
+        throw new Error("STUB");
     });
 
     options.sort((a, b) => {
-      return enumOrder[a.value] > enumOrder[b.value] ? 1 : -1;
+        throw new Error("STUB");
     });
   }
 
@@ -32,10 +32,7 @@ export class DiscriminatorDropdown extends React.Component<{
     }
 
     const options = parent.oneOf.map((subSchema, idx) => {
-      return {
-        value: subSchema.title,
-        idx,
-      };
+        throw new Error("STUB");
     });
 
     const activeValue = options[parent.activeOneOf].value;
@@ -53,8 +50,6 @@ export class DiscriminatorDropdown extends React.Component<{
   }
 
   changeActiveChild = (option: DropdownOption) => {
-    if (option.idx !== undefined) {
-      this.props.parent.activateOneOf(option.idx);
-    }
+      throw new Error("STUB");
   };
 }

@@ -47,48 +47,7 @@ export class Endpoint extends React.Component<EndpointProps, EndpointState> {
     // TODO: highlight server variables, e.g. https://{user}.test.com
     return (
       <OptionsContext.Consumer>
-        {options => (
-          <OperationEndpointWrap>
-            <EndpointInfo onClick={this.toggle} $expanded={expanded} $inverted={inverted}>
-              <HttpVerb type={operation.httpVerb} $compact={this.props.compact}>
-                {operation.httpVerb}
-              </HttpVerb>
-              <ServerRelativeURL>{operation.path}</ServerRelativeURL>
-              <ShelfIcon
-                float={'right'}
-                color={inverted ? 'black' : 'white'}
-                size={'20px'}
-                direction={expanded ? 'up' : 'down'}
-                style={{ marginRight: '-25px' }}
-              />
-            </EndpointInfo>
-            <ServersOverlay $expanded={expanded} aria-hidden={!expanded}>
-              {operation.servers.map(server => {
-                const normalizedUrl = options.expandDefaultServerVariables
-                  ? expandDefaultServerVariables(server.url, server.variables)
-                  : server.url;
-                const basePath = getBasePath(normalizedUrl);
-                return (
-                  <ServerItem key={normalizedUrl}>
-                    <Markdown source={server.description || ''} compact={true} />
-                    <SelectOnClick>
-                      <ServerUrl>
-                        <span>
-                          {hideHostname || options.hideHostname
-                            ? basePath === '/'
-                              ? ''
-                              : basePath
-                            : normalizedUrl}
-                        </span>
-                        {operation.path}
-                      </ServerUrl>
-                    </SelectOnClick>
-                  </ServerItem>
-                );
-              })}
-            </ServersOverlay>
-          </OperationEndpointWrap>
-        )}
+        {options => { throw new Error("STUB"); }}
       </OptionsContext.Consumer>
     );
   }

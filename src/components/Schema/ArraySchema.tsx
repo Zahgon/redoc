@@ -9,7 +9,7 @@ import { TypeName } from '../../common-elements/fields';
 import { ObjectSchema } from './ObjectSchema';
 
 const PaddedSchema = styled.div`
-  padding-left: ${({ theme }) => theme.spacing.unit * 2}px;
+  padding-left: ${({ theme }) => { throw new Error("STUB"); }}px;
 `;
 
 export class ArraySchema extends React.PureComponent<SchemaProps> {

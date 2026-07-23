@@ -16,23 +16,23 @@ export const Tabs = styled(ReactTabs)`
       padding: 5px 10px;
       display: inline-block;
 
-      background-color: ${({ theme }) => theme.codeBlock.backgroundColor};
+      background-color: ${({ theme }) => { throw new Error("STUB"); }};
       border-bottom: 1px solid rgba(0, 0, 0, 0.5);
       cursor: pointer;
       text-align: center;
       outline: none;
-      color: ${({ theme }) => darken(theme.colors.tonalOffset, theme.rightPanel.textColor)};
+      color: ${({ theme }) => { throw new Error("STUB"); }};
       margin: 0
-        ${({ theme }) => `${theme.spacing.unit}px ${theme.spacing.unit}px ${theme.spacing.unit}px`};
-      border: 1px solid ${({ theme }) => darken(0.05, theme.codeBlock.backgroundColor)};
+        ${({ theme }) => { throw new Error("STUB"); }};
+      border: 1px solid ${({ theme }) => { throw new Error("STUB"); }};
       border-radius: 5px;
       min-width: 60px;
       font-size: 0.9em;
       font-weight: bold;
 
       &.react-tabs__tab--selected {
-        color: ${props => props.theme.colors.text.primary};
-        background: ${({ theme }) => theme.rightPanel.textColor};
+        color: ${props => { throw new Error("STUB"); }};
+        background: ${({ theme }) => { throw new Error("STUB"); }};
         &:focus {
           outline: auto;
         }
@@ -44,27 +44,27 @@ export const Tabs = styled(ReactTabs)`
       }
 
       &.tab-success {
-        color: ${props => props.theme.colors.responses.success.tabTextColor};
+        color: ${props => { throw new Error("STUB"); }};
       }
 
       &.tab-redirect {
-        color: ${props => props.theme.colors.responses.redirect.tabTextColor};
+        color: ${props => { throw new Error("STUB"); }};
       }
 
       &.tab-info {
-        color: ${props => props.theme.colors.responses.info.tabTextColor};
+        color: ${props => { throw new Error("STUB"); }};
       }
 
       &.tab-error {
-        color: ${props => props.theme.colors.responses.error.tabTextColor};
+        color: ${props => { throw new Error("STUB"); }};
       }
     }
   }
   > .react-tabs__tab-panel {
-    background: ${({ theme }) => theme.codeBlock.backgroundColor};
+    background: ${({ theme }) => { throw new Error("STUB"); }};
     & > div,
     & > pre {
-      padding: ${props => props.theme.spacing.unit * 4}px;
+      padding: ${props => { throw new Error("STUB"); }}px;
       margin: 0;
     }
 
@@ -84,7 +84,7 @@ export const SmallTabs = styled(Tabs)`
       font-size: 13px;
       font-weight: normal;
       border-bottom: 1px dashed;
-      color: ${({ theme }) => darken(theme.colors.tonalOffset, theme.rightPanel.textColor)};
+      color: ${({ theme }) => { throw new Error("STUB"); }};
       border-radius: 0;
       background: none;
 
@@ -93,7 +93,7 @@ export const SmallTabs = styled(Tabs)`
       }
 
       &.react-tabs__tab--selected {
-        color: ${({ theme }) => theme.rightPanel.textColor};
+        color: ${({ theme }) => { throw new Error("STUB"); }};
         background: none;
       }
     }
@@ -101,7 +101,7 @@ export const SmallTabs = styled(Tabs)`
   > .react-tabs__tab-panel {
     & > div,
     & > pre {
-      padding: ${props => props.theme.spacing.unit * 2}px 0;
+      padding: ${props => { throw new Error("STUB"); }}px 0;
     }
   }
 `;

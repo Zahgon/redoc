@@ -2,22 +2,15 @@ import { SECTION_ATTR } from '../services/MenuStore';
 import styled, { media } from '../styled-components';
 
 export const MiddlePanel = styled.div<{ $compact?: boolean }>`
-  width: calc(100% - ${props => props.theme.rightPanel.width});
-  padding: 0 ${props => props.theme.spacing.sectionHorizontal}px;
+  width: calc(100% - ${props => { throw new Error("STUB"); }});
+  padding: 0 ${props => { throw new Error("STUB"); }}px;
 
   ${({ $compact, theme }) =>
-    media.lessThan('medium', true)`
-    width: 100%;
-    padding: ${`${$compact ? 0 : theme.spacing.sectionVertical}px ${
-      theme.spacing.sectionHorizontal
-    }px`};
-  `};
+    { throw new Error("STUB"); }};
 `;
 
-export const Section = styled.div.attrs(props => ({
-  [SECTION_ATTR]: props.id,
-}))<{ $underlined?: boolean }>`
-  padding: ${props => props.theme.spacing.sectionVertical}px 0;
+export const Section = styled.div.attrs(props => { throw new Error("STUB"); })<{ $underlined?: boolean }>`
+  padding: ${props => { throw new Error("STUB"); }}px 0;
 
   &:last-child {
     min-height: calc(100vh + 1px);
@@ -31,37 +24,24 @@ export const Section = styled.div.attrs(props => ({
     padding: 0;
   `}
   ${({ $underlined }) =>
-    ($underlined &&
-      `
-    position: relative;
-
-    &:not(:last-of-type):after {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      display: block;
-      content: '';
-      border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-    }
-  `) ||
-    ''}
+    { throw new Error("STUB"); }}
 `;
 
 export const RightPanel = styled.div`
-  width: ${props => props.theme.rightPanel.width};
-  color: ${({ theme }) => theme.rightPanel.textColor};
-  background-color: ${props => props.theme.rightPanel.backgroundColor};
-  padding: 0 ${props => props.theme.spacing.sectionHorizontal}px;
+  width: ${props => { throw new Error("STUB"); }};
+  color: ${({ theme }) => { throw new Error("STUB"); }};
+  background-color: ${props => { throw new Error("STUB"); }};
+  padding: 0 ${props => { throw new Error("STUB"); }}px;
 
   ${media.lessThan('medium', true)`
     width: 100%;
     padding: ${props =>
-      `${props.theme.spacing.sectionVertical}px ${props.theme.spacing.sectionHorizontal}px`};
+      { throw new Error("STUB"); }};
   `};
 `;
 
 export const DarkRightPanel = styled(RightPanel)`
-  background-color: ${props => props.theme.rightPanel.backgroundColor};
+  background-color: ${props => { throw new Error("STUB"); }};
 `;
 
 export const Row = styled.div`

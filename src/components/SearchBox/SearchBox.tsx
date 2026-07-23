@@ -50,69 +50,25 @@ export class SearchBox extends React.PureComponent<SearchBoxProps, SearchBoxStat
   }
 
   clearResults(term: string) {
-    this.setState({
-      results: [],
-      noResults: false,
-      term,
-    });
-    this.props.marker.unmark();
+      throw new Error("STUB");
   }
 
   clear = () => {
-    this.setState({
-      results: [],
-      noResults: false,
-      term: '',
-      activeItemIdx: -1,
-    });
-    this.props.marker.unmark();
+      throw new Error("STUB");
   };
 
   handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.keyCode === 27) {
-      // ESQ
-      this.clear();
-    }
-    if (event.keyCode === 40) {
-      // Arrow down
-      this.setState({
-        activeItemIdx: Math.min(this.state.activeItemIdx + 1, this.state.results.length - 1),
-      });
-      event.preventDefault();
-    }
-    if (event.keyCode === 38) {
-      // Arrow up
-      this.setState({
-        activeItemIdx: Math.max(0, this.state.activeItemIdx - 1),
-      });
-      event.preventDefault();
-    }
-    if (event.keyCode === 13) {
-      // enter
-      const activeResult = this.state.results[this.state.activeItemIdx];
-      if (activeResult) {
-        const item = this.props.getItemById(activeResult.meta);
-        if (item) {
-          this.props.onActivate(item);
-        }
-      }
-    }
+      throw new Error("STUB");
   };
 
   setResults(results: SearchResult[], term: string) {
-    this.setState({
-      results,
-      noResults: results.length === 0,
-    });
-    this.props.marker.mark(term);
+      throw new Error("STUB");
   }
 
   @bind
   @debounce(400)
   searchCallback(searchTerm: string) {
-    this.props.search.search(searchTerm).then(res => {
-      this.setResults(res, searchTerm);
-    });
+      throw new Error("STUB");
   }
 
   search = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -127,19 +83,16 @@ export class SearchBox extends React.PureComponent<SearchBoxProps, SearchBoxStat
       {
         term: q,
       },
-      () => this.searchCallback(this.state.term),
+      () => { throw new Error("STUB"); },
     );
   };
 
   render() {
     const { activeItemIdx } = this.state;
     const results = this.state.results
-      .filter(res => this.props.getItemById(res.meta))
-      .map(res => ({
-        item: this.props.getItemById(res.meta)!,
-        score: res.score,
-      }))
-      .sort((a, b) => b.score - a.score);
+      .filter(res => { throw new Error("STUB"); })
+      .map(res => { throw new Error("STUB"); })
+      .sort((a, b) => { throw new Error("STUB"); });
 
     return (
       <SearchWrap role="search">
@@ -160,19 +113,7 @@ export class SearchBox extends React.PureComponent<SearchBoxProps, SearchBoxStat
             }}
           >
             <SearchResultsBox data-role="search:results">
-              {results.map((res, idx) => (
-                <MenuItem
-                  item={Object.create(res.item, {
-                    active: {
-                      value: idx === activeItemIdx,
-                    },
-                  })}
-                  onActivate={this.props.onActivate}
-                  withoutChildren={true}
-                  key={res.item.id}
-                  data-role="search:result"
-                />
-              ))}
+              {results.map((res, idx) => { throw new Error("STUB"); })}
             </SearchResultsBox>
           </PerfectScrollbarWrap>
         )}

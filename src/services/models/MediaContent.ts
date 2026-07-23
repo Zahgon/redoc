@@ -26,16 +26,7 @@ export class MediaContentModel {
     public isRequestType: boolean,
     options: RedocNormalizedOptions,
   ) {
-    makeObservable(this);
-
-    if (options.unstable_ignoreMimeParameters) {
-      info = mergeSimilarMediaTypes(info);
-    }
-    this.mediaTypes = Object.keys(info).map(name => {
-      const mime = info[name];
-      // reset deref cache just in case something is left there
-      return new MediaTypeModel(parser, name, isRequestType, mime, options);
-    });
+      throw new Error("STUB");
   }
 
   /**
@@ -44,15 +35,15 @@ export class MediaContentModel {
    */
   @action
   activate(idx: number) {
-    this.activeMimeIdx = idx;
+      throw new Error("STUB");
   }
 
   @computed
   get active() {
-    return this.mediaTypes[this.activeMimeIdx];
+      throw new Error("STUB");
   }
 
   get hasSample(): boolean {
-    return this.mediaTypes.filter(mime => !!mime.examples).length > 0;
+      throw new Error("STUB");
   }
 }

@@ -40,23 +40,19 @@ export class PerfectScrollbar extends React.Component<
   private inst: PerfectScrollbarType;
 
   componentDidMount() {
-    const offset = (this._container.parentElement && this._container.parentElement.scrollTop) || 0;
-    this.inst = new PerfectScrollbarConstructor(this._container, this.props.options || {});
-    if (this._container.scrollTo) {
-      this._container.scrollTo(0, offset);
-    }
+      throw new Error("STUB");
   }
 
   componentDidUpdate() {
-    this.inst.update();
+      throw new Error("STUB");
   }
 
   componentWillUnmount() {
-    this.inst.destroy();
+      throw new Error("STUB");
   }
 
   handleRef = ref => {
-    this._container = ref;
+      throw new Error("STUB");
   };
 
   render() {
@@ -80,23 +76,5 @@ export class PerfectScrollbar extends React.Component<
 export function PerfectScrollbarWrap(
   props: PerfectScrollbarProps & { children: JSX.Element[] | JSX.Element },
 ) {
-  return (
-    <OptionsContext.Consumer>
-      {options =>
-        !options.nativeScrollbars ? (
-          <PerfectScrollbar {...props}>{props.children}</PerfectScrollbar>
-        ) : (
-          <div
-            style={{
-              overflow: 'auto',
-              overscrollBehavior: 'contain',
-              msOverflowStyle: '-ms-autohiding-scrollbar',
-            }}
-          >
-            {props.children}
-          </div>
-        )
-      }
-    </OptionsContext.Consumer>
-  );
+    throw new Error("STUB");
 }

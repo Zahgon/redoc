@@ -10,20 +10,9 @@ export interface SourceCodeProps {
 }
 
 export const SourceCode = (props: SourceCodeProps) => {
-  const { source, lang } = props;
-  return <StyledPre dangerouslySetInnerHTML={{ __html: highlight(source, lang) }} />;
+    throw new Error("STUB");
 };
 
 export const SourceCodeWithCopy = (props: SourceCodeProps) => {
-  const { source, lang } = props;
-  return (
-    <CopyButtonWrapper data={source}>
-      {({ renderCopyButton }) => (
-        <SampleControlsWrap>
-          <SampleControls>{renderCopyButton()}</SampleControls>
-          <SourceCode lang={lang} source={source} />
-        </SampleControlsWrap>
-      )}
-    </CopyButtonWrapper>
-  );
+    throw new Error("STUB");
 };

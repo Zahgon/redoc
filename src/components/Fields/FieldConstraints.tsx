@@ -13,9 +13,7 @@ export class ConstraintsView extends React.PureComponent<ConstraintsViewProps> {
     return (
       <span>
         {' '}
-        {this.props.constraints.map(constraint => (
-          <ConstraintItem key={constraint}> {constraint} </ConstraintItem>
-        ))}
+        {this.props.constraints.map(constraint => { throw new Error("STUB"); })}
       </span>
     );
   }

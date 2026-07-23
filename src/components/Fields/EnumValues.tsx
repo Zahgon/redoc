@@ -44,10 +44,7 @@ export class EnumValues extends React.PureComponent<EnumValuesProps, EnumValuesS
     const isDescriptionEnum = !Array.isArray(values);
     const enums =
       (Array.isArray(values) && values) ||
-      Object.entries(values || {}).map(([value, description]) => ({
-        value,
-        description,
-      }));
+      Object.entries(values || {}).map(([value, description]) => { throw new Error("STUB"); });
 
     // TODO: provide context interface in more elegant way
     const { enumSkipQuotes, maxDisplayedEnumValues } = this.context as RedocRawOptions;
@@ -91,15 +88,8 @@ export class EnumValues extends React.PureComponent<EnumValuesProps, EnumValuesS
                 <tbody>
                   {(displayedItems as { value: string; description: string }[]).map(
                     ({ description, value }) => {
-                      return (
-                        <tr key={value}>
-                          <td>{value}</td>
-                          <td>
-                            <Markdown source={description} compact inline />
-                          </td>
-                        </tr>
-                      );
-                    },
+                          throw new Error("STUB");
+                      },
                   )}
                 </tbody>
               </table>
@@ -115,12 +105,7 @@ export class EnumValues extends React.PureComponent<EnumValuesProps, EnumValuesS
               {values.length === 1 ? l('enumSingleValue') : l('enum')}:
             </FieldLabel>{' '}
             {displayedItems.map((value, idx) => {
-              const exampleValue = enumSkipQuotes ? String(value) : JSON.stringify(value);
-              return (
-                <React.Fragment key={idx}>
-                  <ExampleValue>{exampleValue}</ExampleValue>{' '}
-                </React.Fragment>
-              );
+                throw new Error("STUB");
             })}
             {showToggleButton ? (
               <ToggleButton onClick={this.toggle}>{toggleButtonText}</ToggleButton>
@@ -133,7 +118,7 @@ export class EnumValues extends React.PureComponent<EnumValuesProps, EnumValuesS
 }
 
 const ToggleButton = styled.span`
-  color: ${props => props.theme.colors.primary.main};
+  color: ${props => { throw new Error("STUB"); }};
   vertical-align: middle;
   font-size: 13px;
   line-height: 20px;

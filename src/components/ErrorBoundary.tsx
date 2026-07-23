@@ -16,8 +16,7 @@ export class ErrorBoundary extends React.Component<
   }
 
   componentDidCatch(error) {
-    this.setState({ error });
-    return false;
+      throw new Error("STUB");
   }
 
   render() {

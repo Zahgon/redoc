@@ -20,22 +20,5 @@ export function SanitizedMarkdownHTML({
   compact,
   ...rest
 }: StylingMarkdownProps & { html: string; className?: string; 'data-role'?: string }) {
-  const Wrap = inline ? StyledMarkdownSpan : StyledMarkdownBlock;
-
-  return (
-    <OptionsConsumer>
-      {options => (
-        <Wrap
-          className={'redoc-markdown ' + (rest.className || '')}
-          dangerouslySetInnerHTML={{
-            __html: sanitize(options.sanitize, rest.html),
-          }}
-          data-role={rest['data-role']}
-          {...rest}
-          $inline={inline}
-          $compact={compact}
-        />
-      )}
-    </OptionsConsumer>
-  );
+    throw new Error("STUB");
 }

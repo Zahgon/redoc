@@ -1,11 +1,7 @@
 export function debugTime(label: string) {
-  if (process.env.NODE_ENV !== 'production') {
-    console.time(label);
-  }
+    throw new Error("STUB");
 }
 
 export function debugTimeEnd(label: string) {
-  if (process.env.NODE_ENV !== 'production') {
-    console.timeEnd(label);
-  }
+    throw new Error("STUB");
 }

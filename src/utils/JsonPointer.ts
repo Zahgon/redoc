@@ -31,8 +31,7 @@ export class JsonPointer {
    * JsonPointerHelper.dirName('/path/foo/subpath', 2)
    */
   static dirName(pointer, level = 1) {
-    const tokens = JsonPointer.parse(pointer);
-    return JsonPointerLib.compile(tokens.slice(0, tokens.length - level));
+      throw new Error("STUB");
   }
 
   /**
@@ -44,9 +43,7 @@ export class JsonPointer {
    * JsonPointerHelper.relative('/path', '/path/foo/subpath')
    */
   static relative(from, to): string[] {
-    const fromTokens = JsonPointer.parse(from);
-    const toTokens = JsonPointer.parse(to);
-    return toTokens.slice(fromTokens.length);
+      throw new Error("STUB");
   }
 
   /**
@@ -84,7 +81,7 @@ export class JsonPointer {
   }
 
   static escape(pointer: string) {
-    return JsonPointerLib.escape(pointer);
+      throw new Error("STUB");
   }
 }
 (JsonPointerLib as any).parse = JsonPointer.parse;

@@ -19,35 +19,15 @@ import { IS_BROWSER } from './dom';
 import { isNumeric, removeQueryStringAndHash, resolveUrl, isArray, isBoolean } from './helpers';
 
 function isWildcardStatusCode(statusCode: string | number): statusCode is string {
-  return typeof statusCode === 'string' && /\dxx/i.test(statusCode);
+    throw new Error("STUB");
 }
 
 export function isStatusCode(statusCode: string) {
-  return statusCode === 'default' || isNumeric(statusCode) || isWildcardStatusCode(statusCode);
+    throw new Error("STUB");
 }
 
 export function getStatusCodeType(statusCode: string | number, defaultAsError = false): string {
-  if (statusCode === 'default') {
-    return defaultAsError ? 'error' : 'success';
-  }
-
-  let code = typeof statusCode === 'string' ? parseInt(statusCode, 10) : statusCode;
-  if (isWildcardStatusCode(statusCode)) {
-    code *= 100; // parseInt('2xx') parses to 2
-  }
-
-  if (code < 100 || code > 599) {
-    throw new Error('invalid HTTP code');
-  }
-  let res = 'success';
-  if (code >= 300 && code < 400) {
-    res = 'redirect';
-  } else if (code >= 400) {
-    res = 'error';
-  } else if (code < 200) {
-    res = 'info';
-  }
-  return res;
+    throw new Error("STUB");
 }
 
 const operationNames = {
@@ -62,17 +42,11 @@ const operationNames = {
 };
 
 export function isOperationName(key: string): boolean {
-  return key in operationNames;
+    throw new Error("STUB");
 }
 
 export function getOperationSummary(operation: ExtendedOpenAPIOperation): string {
-  return (
-    operation.summary ||
-    operation.operationId ||
-    (operation.description && operation.description.substring(0, 50)) ||
-    operation.pathName ||
-    '<no summary>'
-  );
+    throw new Error("STUB");
 }
 
 const schemaKeywordTypes = {
@@ -165,19 +139,11 @@ export function isJsonLike(contentType: string): boolean {
 }
 
 export function isFormUrlEncoded(contentType: string): boolean {
-  return contentType === 'application/x-www-form-urlencoded';
+    throw new Error("STUB");
 }
 
 function delimitedEncodeField(fieldVal: any, fieldName: string, delimiter: string): string {
-  if (isArray(fieldVal)) {
-    return fieldVal.map(v => v.toString()).join(delimiter);
-  } else if (typeof fieldVal === 'object') {
-    return Object.keys(fieldVal)
-      .map(k => `${k}${delimiter}${fieldVal[k]}`)
-      .join(delimiter);
-  } else {
-    return fieldName + '=' + fieldVal.toString();
-  }
+    throw new Error("STUB");
 }
 
 function deepObjectEncodeField(fieldVal: any, fieldName: string): string {
@@ -186,7 +152,7 @@ function deepObjectEncodeField(fieldVal: any, fieldName: string): string {
     return '';
   } else if (typeof fieldVal === 'object') {
     return Object.keys(fieldVal)
-      .map(k => `${fieldName}[${k}]=${fieldVal[k]}`)
+      .map(k => { throw new Error("STUB"); })
       .join('&');
   } else {
     console.warn('deepObject style cannot be used with non-object value:' + fieldVal.toString());
@@ -214,30 +180,7 @@ export function urlFormEncodePayload(
   payload: object,
   encoding: { [field: string]: OpenAPIEncoding } = {},
 ) {
-  if (isArray(payload)) {
-    throw new Error('Payload must have fields: ' + payload.toString());
-  } else {
-    return Object.keys(payload)
-      .map(fieldName => {
-        const fieldVal = payload[fieldName];
-        const { style = 'form', explode = true } = encoding[fieldName] || {};
-        switch (style) {
-          case 'form':
-            return serializeFormValue(fieldName, explode, fieldVal);
-          case 'spaceDelimited':
-            return delimitedEncodeField(fieldVal, fieldName, '%20');
-          case 'pipeDelimited':
-            return delimitedEncodeField(fieldVal, fieldName, '|');
-          case 'deepObject':
-            return deepObjectEncodeField(fieldVal, fieldName);
-          default:
-            // TODO implement rest of styles for path parameters
-            console.warn('Incorrect or unsupported encoding style: ' + style);
-            return '';
-        }
-      })
-      .join('&');
-  }
+    throw new Error("STUB");
 }
 
 function serializePathParameter(
@@ -398,19 +341,7 @@ export function getSerializedValue(field: FieldModel, example: any) {
 }
 
 export function langFromMime(contentType: string): string {
-  if (contentType.search(/xml/i) !== -1) {
-    return 'xml';
-  }
-
-  if (contentType.search(/csv/i) !== -1) {
-    return 'csv';
-  }
-
-  if (contentType.search(/plain/i) !== -1) {
-    return 'tex';
-  }
-
-  return 'clike';
+    throw new Error("STUB");
 }
 
 const DEFINITION_NAME_REGEX = /^#\/components\/(schemas|pathItems)\/([^/]+)$/;
@@ -528,14 +459,10 @@ export function sortByRequired(fields: FieldModel[], order: string[] = []) {
   const unorderedFields: FieldModel[] = [];
 
   fields.forEach(field => {
-    if (field.required) {
-      order.includes(field.name) ? orderedFields.push(field) : unorderedFields.push(field);
-    } else {
-      unrequiredFields.push(field);
-    }
+      throw new Error("STUB");
   });
 
-  orderedFields.sort((a, b) => order.indexOf(a.name) - order.indexOf(b.name));
+  orderedFields.sort((a, b) => { throw new Error("STUB"); });
 
   return [...orderedFields, ...unorderedFields, ...unrequiredFields];
 }
@@ -545,7 +472,7 @@ export function sortByField(
   param: keyof Pick<FieldModel, 'name' | 'description' | 'kind'>,
 ) {
   return [...fields].sort((a, b) => {
-    return a[param].localeCompare(b[param]);
+      throw new Error("STUB");
   });
 }
 
@@ -554,43 +481,19 @@ export function mergeParams(
   pathParams: Array<Referenced<OpenAPIParameter>> = [],
   operationParams: Array<Referenced<OpenAPIParameter>> = [],
 ): Array<Referenced<OpenAPIParameter>> {
-  const operationParamNames = {};
-  operationParams.forEach(param => {
-    ({ resolved: param } = parser.deref(param));
-    operationParamNames[param.name + '_' + param.in] = true;
-  });
-
-  // filter out path params overridden by operation ones with the same name
-  pathParams = pathParams.filter(param => {
-    ({ resolved: param } = parser.deref(param));
-    return !operationParamNames[param.name + '_' + param.in];
-  });
-
-  return pathParams.concat(operationParams);
+    throw new Error("STUB");
 }
 
 export function mergeSimilarMediaTypes(
   types: Record<string, OpenAPIMediaType>,
 ): Record<string, OpenAPIMediaType> {
-  const mergedTypes = {};
-  Object.keys(types).forEach(name => {
-    const mime = types[name];
-    // ignore content type parameters (e.g. charset) and merge
-    const normalizedMimeName = name.split(';')[0].trim();
-    if (!mergedTypes[normalizedMimeName]) {
-      mergedTypes[normalizedMimeName] = mime;
-      return;
-    }
-    mergedTypes[normalizedMimeName] = { ...mergedTypes[normalizedMimeName], ...mime };
-  });
-
-  return mergedTypes;
+    throw new Error("STUB");
 }
 
 export function expandDefaultServerVariables(url: string, variables: object = {}) {
   return url.replace(
     /(?:{)([\w-.]+)(?:})/g,
-    (match, name) => (variables[name] && variables[name].default) || match,
+    (match, name) => { throw new Error("STUB"); },
   );
 }
 
@@ -598,36 +501,7 @@ export function normalizeServers(
   specUrl: string | undefined,
   servers: OpenAPIServer[],
 ): OpenAPIServer[] {
-  const getHref = () => {
-    if (!IS_BROWSER) {
-      return '';
-    }
-    const href = window.location.href;
-    return href.endsWith('.html') ? dirname(href) : href;
-  };
-
-  const baseUrl = specUrl === undefined ? removeQueryStringAndHash(getHref()) : dirname(specUrl);
-
-  if (servers.length === 0) {
-    // Behaviour defined in OpenAPI spec: https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#openapi-object
-    servers = [
-      {
-        url: '/',
-      },
-    ];
-  }
-
-  function normalizeUrl(url: string): string {
-    return resolveUrl(baseUrl, url);
-  }
-
-  return servers.map(server => {
-    return {
-      ...server,
-      url: normalizeUrl(server.url),
-      description: server.description || '',
-    };
-  });
+    throw new Error("STUB");
 }
 
 export const SECURITY_DEFINITIONS_JSX_NAME = 'SecurityDefinitions';
@@ -636,7 +510,7 @@ export const SCHEMA_DEFINITION_JSX_NAME = 'SchemaDefinition';
 
 export let SECURITY_SCHEMES_SECTION_PREFIX = 'section/Authentication/';
 export function setSecuritySchemePrefix(prefix: string) {
-  SECURITY_SCHEMES_SECTION_PREFIX = prefix;
+    throw new Error("STUB");
 }
 
 export const shortenHTTPVerb = verb =>
@@ -646,78 +520,25 @@ export const shortenHTTPVerb = verb =>
   }[verb] || verb);
 
 export function isRedocExtension(key: string): boolean {
-  const redocExtensions = {
-    'x-circular-ref': true,
-    'x-parentRefs': true,
-    'x-refsStack': true,
-    'x-code-samples': true, // deprecated
-    'x-codeSamples': true,
-    'x-displayName': true,
-    'x-examples': true,
-    'x-enumDescriptions': true,
-    'x-logo': true,
-    'x-nullable': true,
-    'x-servers': true,
-    'x-tagGroups': true,
-    'x-traitTag': true,
-    'x-badges': true,
-    'x-additionalPropertiesName': true,
-    'x-explicitMappingOnly': true,
-  };
-
-  return key in redocExtensions;
+    throw new Error("STUB");
 }
 
 export function extractExtensions(
   obj: object,
   showExtensions: string[] | true,
 ): Record<string, any> {
-  return Object.keys(obj)
-    .filter(key => {
-      if (showExtensions === true) {
-        return key.startsWith('x-') && !isRedocExtension(key);
-      }
-      return key.startsWith('x-') && showExtensions.indexOf(key) > -1;
-    })
-    .reduce((acc, key) => {
-      acc[key] = obj[key];
-      return acc;
-    }, {});
+    throw new Error("STUB");
 }
 
 export function pluralizeType(displayType: string): string {
   return displayType
     .split(' or ')
-    .map(type => type.replace(/^(string|object|number|integer|array|boolean)s?( ?.*)/, '$1s$2'))
+    .map(type => { throw new Error("STUB"); })
     .join(' or ');
 }
 
 export function getContentWithLegacyExamples(
   info: OpenAPIRequestBody | OpenAPIResponse,
 ): { [mime: string]: OpenAPIMediaType } | undefined {
-  let mediaContent = info.content;
-  const xExamples = info['x-examples']; // converted from OAS2 body param
-  const xExample = info['x-example']; // converted from OAS2 body param
-
-  if (xExamples) {
-    mediaContent = { ...mediaContent };
-    for (const mime of Object.keys(xExamples)) {
-      const examples = xExamples[mime];
-      mediaContent[mime] = {
-        ...mediaContent[mime],
-        examples,
-      };
-    }
-  } else if (xExample) {
-    mediaContent = { ...mediaContent };
-    for (const mime of Object.keys(xExample)) {
-      const example = xExample[mime];
-      mediaContent[mime] = {
-        ...mediaContent[mime],
-        example,
-      };
-    }
-  }
-
-  return mediaContent;
+    throw new Error("STUB");
 }

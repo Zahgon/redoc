@@ -22,7 +22,7 @@ const labels: LabelsConfig = {
 };
 
 export function setRedocLabels(_labels?: LabelsConfigRaw) {
-  Object.assign(labels, _labels);
+    throw new Error("STUB");
 }
 
 export function l(key: keyof LabelsConfig, idx?: number): string {

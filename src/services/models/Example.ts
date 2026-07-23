@@ -16,17 +16,7 @@ export class ExampleModel {
     public mime: string,
     encoding?: { [field: string]: OpenAPIEncoding },
   ) {
-    const { resolved: example } = parser.deref(infoOrRef);
-    this.value = example.value;
-    this.summary = example.summary;
-    this.description = example.description;
-    if (example.externalValue) {
-      this.externalValueUrl = new URL(example.externalValue, parser.specUrl).href;
-    }
-
-    if (isFormUrlEncoded(mime) && this.value && typeof this.value === 'object') {
-      this.value = urlFormEncodePayload(this.value, encoding);
-    }
+      throw new Error("STUB");
   }
 
   getExternalValue(mimeType: string): Promise<any> {
@@ -39,21 +29,7 @@ export class ExampleModel {
     }
 
     externalExamplesCache[this.externalValueUrl] = fetch(this.externalValueUrl).then(res => {
-      return res.text().then(txt => {
-        if (!res.ok) {
-          return Promise.reject(new Error(txt));
-        }
-
-        if (isJsonLike(mimeType)) {
-          try {
-            return JSON.parse(txt);
-          } catch (e) {
-            return txt;
-          }
-        } else {
-          return txt;
-        }
-      });
+        throw new Error("STUB");
     });
 
     return externalExamplesCache[this.externalValueUrl];

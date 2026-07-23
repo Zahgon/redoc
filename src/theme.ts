@@ -3,8 +3,8 @@ import { darken, desaturate, lighten, readableColor, transparentize } from 'poli
 const defaultTheme: ThemeInterface = {
   spacing: {
     unit: 5,
-    sectionHorizontal: ({ spacing }) => spacing.unit * 8,
-    sectionVertical: ({ spacing }) => spacing.unit * 8,
+    sectionHorizontal: ({ spacing }) => { throw new Error("STUB"); },
+    sectionVertical: ({ spacing }) => { throw new Error("STUB"); },
   },
   breakpoints: {
     small: '50rem',
@@ -15,27 +15,27 @@ const defaultTheme: ThemeInterface = {
     tonalOffset: 0.2,
     primary: {
       main: '#32329f',
-      light: ({ colors }) => lighten(colors.tonalOffset, colors.primary.main),
-      dark: ({ colors }) => darken(colors.tonalOffset, colors.primary.main),
-      contrastText: ({ colors }) => readableColor(colors.primary.main),
+      light: ({ colors }) => { throw new Error("STUB"); },
+      dark: ({ colors }) => { throw new Error("STUB"); },
+      contrastText: ({ colors }) => { throw new Error("STUB"); },
     },
     success: {
       main: '#1d8127',
-      light: ({ colors }) => lighten(colors.tonalOffset * 2, colors.success.main),
-      dark: ({ colors }) => darken(colors.tonalOffset, colors.success.main),
-      contrastText: ({ colors }) => readableColor(colors.success.main),
+      light: ({ colors }) => { throw new Error("STUB"); },
+      dark: ({ colors }) => { throw new Error("STUB"); },
+      contrastText: ({ colors }) => { throw new Error("STUB"); },
     },
     warning: {
       main: '#ffa500',
-      light: ({ colors }) => lighten(colors.tonalOffset, colors.warning.main),
-      dark: ({ colors }) => darken(colors.tonalOffset, colors.warning.main),
+      light: ({ colors }) => { throw new Error("STUB"); },
+      dark: ({ colors }) => { throw new Error("STUB"); },
       contrastText: '#ffffff',
     },
     error: {
       main: '#d41f1c',
-      light: ({ colors }) => lighten(colors.tonalOffset, colors.error.main),
-      dark: ({ colors }) => darken(colors.tonalOffset, colors.error.main),
-      contrastText: ({ colors }) => readableColor(colors.error.main),
+      light: ({ colors }) => { throw new Error("STUB"); },
+      dark: ({ colors }) => { throw new Error("STUB"); },
+      contrastText: ({ colors }) => { throw new Error("STUB"); },
     },
     gray: {
       50: '#FAFAFA',
@@ -43,7 +43,7 @@ const defaultTheme: ThemeInterface = {
     },
     text: {
       primary: '#333333',
-      secondary: ({ colors }) => lighten(colors.tonalOffset, colors.text.primary),
+      secondary: ({ colors }) => { throw new Error("STUB"); },
     },
     border: {
       dark: 'rgba(0,0,0, 0.1)',
@@ -51,24 +51,24 @@ const defaultTheme: ThemeInterface = {
     },
     responses: {
       success: {
-        color: ({ colors }) => colors.success.main,
-        backgroundColor: ({ colors }) => transparentize(0.93, colors.success.main),
-        tabTextColor: ({ colors }) => colors.responses.success.color,
+        color: ({ colors }) => { throw new Error("STUB"); },
+        backgroundColor: ({ colors }) => { throw new Error("STUB"); },
+        tabTextColor: ({ colors }) => { throw new Error("STUB"); },
       },
       error: {
-        color: ({ colors }) => colors.error.main,
-        backgroundColor: ({ colors }) => transparentize(0.93, colors.error.main),
-        tabTextColor: ({ colors }) => colors.responses.error.color,
+        color: ({ colors }) => { throw new Error("STUB"); },
+        backgroundColor: ({ colors }) => { throw new Error("STUB"); },
+        tabTextColor: ({ colors }) => { throw new Error("STUB"); },
       },
       redirect: {
-        color: ({ colors }) => colors.warning.main,
-        backgroundColor: ({ colors }) => transparentize(0.9, colors.responses.redirect.color),
-        tabTextColor: ({ colors }) => colors.responses.redirect.color,
+        color: ({ colors }) => { throw new Error("STUB"); },
+        backgroundColor: ({ colors }) => { throw new Error("STUB"); },
+        tabTextColor: ({ colors }) => { throw new Error("STUB"); },
       },
       info: {
         color: '#87ceeb',
-        backgroundColor: ({ colors }) => transparentize(0.9, colors.responses.info.color),
-        tabTextColor: ({ colors }) => colors.responses.info.color,
+        backgroundColor: ({ colors }) => { throw new Error("STUB"); },
+        tabTextColor: ({ colors }) => { throw new Error("STUB"); },
       },
     },
     http: {
@@ -85,20 +85,17 @@ const defaultTheme: ThemeInterface = {
   },
   schema: {
     linesColor: theme =>
-      lighten(
-        theme.colors.tonalOffset,
-        desaturate(theme.colors.tonalOffset, theme.colors.primary.main),
-      ),
+      { throw new Error("STUB"); },
     defaultDetailsWidth: '75%',
-    typeNameColor: theme => theme.colors.text.secondary,
-    typeTitleColor: theme => theme.schema.typeNameColor,
-    requireLabelColor: theme => theme.colors.error.main,
+    typeNameColor: theme => { throw new Error("STUB"); },
+    typeTitleColor: theme => { throw new Error("STUB"); },
+    requireLabelColor: theme => { throw new Error("STUB"); },
     labelsTextSize: '0.9em',
     nestingSpacing: '1em',
     nestedBackground: '#fafafa',
     arrow: {
       size: '1.1em',
-      color: theme => theme.colors.text.secondary,
+      color: theme => { throw new Error("STUB"); },
     },
   },
   typography: {
@@ -118,16 +115,16 @@ const defaultTheme: ThemeInterface = {
     code: {
       fontSize: '13px',
       fontFamily: 'Courier, monospace',
-      lineHeight: ({ typography }) => typography.lineHeight,
-      fontWeight: ({ typography }) => typography.fontWeightRegular,
+      lineHeight: ({ typography }) => { throw new Error("STUB"); },
+      fontWeight: ({ typography }) => { throw new Error("STUB"); },
       color: '#e53935',
       backgroundColor: 'rgba(38, 50, 56, 0.05)',
       wrap: false,
     },
     links: {
-      color: ({ colors }) => colors.primary.main,
-      visited: ({ typography }) => typography.links.color,
-      hover: ({ typography }) => lighten(0.2, typography.links.color),
+      color: ({ colors }) => { throw new Error("STUB"); },
+      visited: ({ typography }) => { throw new Error("STUB"); },
+      hover: ({ typography }) => { throw new Error("STUB"); },
       textDecoration: 'auto',
       hoverTextDecoration: 'auto',
     },
@@ -137,27 +134,25 @@ const defaultTheme: ThemeInterface = {
     backgroundColor: '#fafafa',
     textColor: '#333333',
     activeTextColor: theme =>
-      theme.sidebar.textColor !== defaultTheme.sidebar!.textColor
-        ? theme.sidebar.textColor
-        : theme.colors.primary.main,
+      { throw new Error("STUB"); },
     groupItems: {
-      activeBackgroundColor: theme => darken(0.1, theme.sidebar.backgroundColor),
-      activeTextColor: theme => theme.sidebar.activeTextColor,
+      activeBackgroundColor: theme => { throw new Error("STUB"); },
+      activeTextColor: theme => { throw new Error("STUB"); },
       textTransform: 'uppercase',
     },
     level1Items: {
-      activeBackgroundColor: theme => darken(0.05, theme.sidebar.backgroundColor),
-      activeTextColor: theme => theme.sidebar.activeTextColor,
+      activeBackgroundColor: theme => { throw new Error("STUB"); },
+      activeTextColor: theme => { throw new Error("STUB"); },
       textTransform: 'none',
     },
     arrow: {
       size: '1.5em',
-      color: theme => theme.sidebar.textColor,
+      color: theme => { throw new Error("STUB"); },
     },
   },
   logo: {
-    maxHeight: ({ sidebar }) => sidebar.width,
-    maxWidth: ({ sidebar }) => sidebar.width,
+    maxHeight: ({ sidebar }) => { throw new Error("STUB"); },
+    maxWidth: ({ sidebar }) => { throw new Error("STUB"); },
     gutter: '2px',
   },
   rightPanel: {
@@ -175,7 +170,7 @@ const defaultTheme: ThemeInterface = {
     },
   },
   codeBlock: {
-    backgroundColor: ({ rightPanel }) => darken(0.1, rightPanel.backgroundColor),
+    backgroundColor: ({ rightPanel }) => { throw new Error("STUB"); },
   },
   fab: {
     backgroundColor: '#f2f2f2',
@@ -190,28 +185,7 @@ export function resolveTheme(theme: ThemeInterface): ResolvedThemeInterface {
   let counter = 0;
   const setProxy = (obj, path: string) => {
     Object.keys(obj).forEach(k => {
-      const currentPath = (path ? path + '.' : '') + k;
-      const val = obj[k];
-      if (typeof val === 'function') {
-        Object.defineProperty(obj, k, {
-          get() {
-            if (!resolvedValues[currentPath]) {
-              counter++;
-              if (counter > 1000) {
-                throw new Error(
-                  `Theme probably contains circular dependency at ${currentPath}: ${val.toString()}`,
-                );
-              }
-
-              resolvedValues[currentPath] = val(theme);
-            }
-            return resolvedValues[currentPath];
-          },
-          enumerable: true,
-        });
-      } else if (typeof val === 'object') {
-        setProxy(val, currentPath);
-      }
+        throw new Error("STUB");
     });
   };
 

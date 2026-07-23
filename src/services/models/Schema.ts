@@ -84,20 +84,7 @@ export class SchemaModel {
     isChild: boolean = false,
     private refsStack: string[] = [],
   ) {
-    makeObservable(this);
-
-    this.pointer = schemaOrRef.$ref || pointer || '';
-
-    const { resolved, refsStack: newRefsStack } = parser.deref(schemaOrRef, refsStack, true);
-    this.refsStack = pushRef(newRefsStack, this.pointer);
-    this.rawSchema = resolved;
-
-    this.schema = parser.mergeAllOf(this.rawSchema, this.pointer, this.refsStack);
-    this.init(parser, isChild);
-
-    if (options.showExtensions) {
-      this.extensions = extractExtensions(this.schema, options.showExtensions);
-    }
+      throw new Error("STUB");
   }
 
   /**
@@ -106,7 +93,7 @@ export class SchemaModel {
    */
   @action
   activateOneOf(idx: number) {
-    this.activeOneOf = idx;
+      throw new Error("STUB");
   }
 
   hasType(type: string) {
@@ -143,7 +130,7 @@ export class SchemaModel {
     this.maxItems = schema.maxItems;
 
     if (!!schema.nullable || schema['x-nullable']) {
-      if (isArray(this.type) && !this.type.some(value => value === null || value === 'null')) {
+      if (isArray(this.type) && !this.type.some(value => { throw new Error("STUB"); })) {
         this.type = [...this.type, 'null'];
       } else if (!isArray(this.type) && (this.type !== null || this.type !== 'null')) {
         this.type = [this.type, 'null'];
@@ -151,7 +138,7 @@ export class SchemaModel {
     }
 
     this.displayType = isArray(this.type)
-      ? this.type.map(item => (item === null ? 'null' : item)).join(' or ')
+      ? this.type.map(item => { throw new Error("STUB"); }).join(' or ')
       : this.type;
 
     if (this.isCircular) {
@@ -169,7 +156,7 @@ export class SchemaModel {
     } else if (
       isChild &&
       isArray(schema.oneOf) &&
-      schema.oneOf.find(s => s.$ref === this.pointer)
+      schema.oneOf.find(s => { throw new Error("STUB"); })
     ) {
       // we hit allOf of the schema with the parent discriminator
       delete schema.oneOf;
@@ -226,7 +213,7 @@ export class SchemaModel {
         this['x-enumDescriptions'] = this.items['x-enumDescriptions'];
       }
       if (isArray(this.type)) {
-        const filteredType = this.type.filter(item => item !== 'array');
+        const filteredType = this.type.filter(item => { throw new Error("STUB"); });
         if (filteredType.length) this.displayType += ` or ${filteredType.join(' or ')}`;
       }
     }
@@ -238,35 +225,7 @@ export class SchemaModel {
 
   private initOneOf(oneOf: OpenAPISchema[], parser: OpenAPIParser) {
     this.oneOf = oneOf!.map((variant, idx) => {
-      const { resolved: derefVariant, refsStack } = parser.deref(variant, this.refsStack, true);
-
-      const merged = parser.mergeAllOf(derefVariant, this.pointer + '/oneOf/' + idx, refsStack);
-
-      // try to infer title
-      const title =
-        isNamedDefinition(variant.$ref) && !merged.title
-          ? JsonPointer.baseName(variant.$ref)
-          : `${merged.title || ''}${
-              (typeof merged.const !== 'undefined' && JSON.stringify(merged.const)) || ''
-            }`;
-      const schema = new SchemaModel(
-        parser,
-        // merge base schema into each of oneOf's subschemas
-        {
-          // variant may already have allOf so merge it to not get overwritten
-          ...merged,
-          title,
-          allOf: [{ ...this.schema, oneOf: undefined, anyOf: undefined }],
-          // if specific child schemas are listed in oneOf/anyOf, they are not supposed to be discriminated
-          discriminator: derefVariant.allOf ? undefined : merged.discriminator,
-        } as OpenAPISchema,
-        variant.$ref || this.pointer + '/oneOf/' + idx,
-        this.options,
-        false,
-        refsStack,
-      );
-
-      return schema;
+        throw new Error("STUB");
     });
 
     if (this.options.simpleOneOfTypeLabel) {
@@ -275,13 +234,7 @@ export class SchemaModel {
     } else {
       this.displayType = this.oneOf
         .map(schema => {
-          let name =
-            schema.typePrefix +
-            (schema.title ? `${schema.title} (${schema.displayType})` : schema.displayType);
-          if (name.indexOf(' or ') > -1) {
-            name = `(${name})`;
-          }
-          return name;
+            throw new Error("STUB");
         })
         .join(' or ');
     }
@@ -355,35 +308,12 @@ export class SchemaModel {
     const names = Object.keys(mapping);
     if (names.length !== 0) {
       refs = refs.sort((left, right) => {
-        const indexLeft = names.indexOf(left.name);
-        const indexRight = names.indexOf(right.name);
-
-        if (indexLeft < 0 && indexRight < 0) {
-          // out of mapping, order by name
-          return left.name.localeCompare(right.name);
-        } else if (indexLeft < 0) {
-          // the right is found, so mapping wins
-          return 1;
-        } else if (indexRight < 0) {
-          // left wins as it's in mapping
-          return -1;
-        } else {
-          return indexLeft - indexRight;
-        }
+          throw new Error("STUB");
       });
     }
 
     this.oneOf = refs.map(({ $ref, name }) => {
-      const innerSchema = new SchemaModel(
-        parser,
-        { $ref },
-        $ref,
-        this.options,
-        true,
-        this.refsStack.slice(0, -1),
-      );
-      innerSchema.title = name;
-      return innerSchema;
+        throw new Error("STUB");
     });
   }
 
@@ -407,16 +337,7 @@ export class SchemaModel {
 
     this.oneOf = groupedOperators.map(
       (variant, idx) =>
-        new SchemaModel(
-          parser,
-          {
-            ...variant,
-          } as OpenAPISchema,
-          this.pointer + '/oneOf/' + idx,
-          this.options,
-          false,
-          this.refsStack,
-        ),
+        { throw new Error("STUB"); },
     );
     this.oneOfType = 'One of';
   }
@@ -435,32 +356,7 @@ function buildFields(
   const itemsProps = schema.prefixItems ? schema.items : schema.additionalItems;
   const defaults = schema.default;
   let fields = Object.keys(props || []).map(fieldName => {
-    let field = props[fieldName];
-
-    if (!field) {
-      console.warn(
-        `Field "${fieldName}" is invalid, skipping.\n Field must be an object but got ${typeof field} at "${$ref}"`,
-      );
-      field = {};
-    }
-
-    const required =
-      schema.required === undefined ? false : schema.required.indexOf(fieldName) > -1;
-
-    return new FieldModel(
-      parser,
-      {
-        name: schema.properties ? fieldName : `[${fieldName}]`,
-        required,
-        schema: {
-          ...field,
-          default: field.default === undefined && defaults ? defaults[fieldName] : field.default,
-        },
-      },
-      $ref + '/properties/' + fieldName,
-      options,
-      refsStack,
-    );
+      throw new Error("STUB");
   });
 
   if (options.sortPropsAlphabetically) {
@@ -473,27 +369,7 @@ function buildFields(
 
   fields.push(
     ...Object.keys(patternProps).map(fieldName => {
-      let field = patternProps[fieldName];
-
-      if (!field) {
-        console.warn(
-          `Field "${fieldName}" is invalid, skipping.\n Field must be an object but got ${typeof field} at "${$ref}"`,
-        );
-        field = {};
-      }
-
-      return new FieldModel(
-        parser,
-        {
-          name: fieldName,
-          required: false,
-          schema: field,
-          kind: 'patternProperties',
-        },
-        `${$ref}/patternProperties/${fieldName}`,
-        options,
-        refsStack,
-      );
+        throw new Error("STUB");
     }),
   );
 
@@ -567,16 +443,7 @@ function buildAdditionalItems({
     return [
       ...schema.map(
         (field, idx) =>
-          new FieldModel(
-            parser,
-            {
-              name: `[${fieldsCount + idx}]`,
-              schema: field,
-            },
-            `${$ref}/additionalItems`,
-            options,
-            refsStack,
-          ),
+          { throw new Error("STUB"); },
       ),
     ];
   }

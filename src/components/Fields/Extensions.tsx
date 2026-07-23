@@ -23,19 +23,7 @@ export class Extensions extends React.PureComponent<ExtensionsProps> {
     const exts = this.props.extensions;
     return (
       <OptionsContext.Consumer>
-        {options => (
-          <>
-            {options.showExtensions &&
-              Object.keys(exts).map(key => (
-                <Extension key={key}>
-                  <FieldLabel> {key.substring(2)}: </FieldLabel>{' '}
-                  <ExtensionValue>
-                    {typeof exts[key] === 'string' ? exts[key] : JSON.stringify(exts[key])}
-                  </ExtensionValue>
-                </Extension>
-              ))}
-          </>
-        )}
+        {options => { throw new Error("STUB"); }}
       </OptionsContext.Consumer>
     );
   }

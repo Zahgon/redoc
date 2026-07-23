@@ -18,14 +18,6 @@ export class RequestBodyModel {
   content?: MediaContentModel;
 
   constructor({ parser, infoOrRef, options, isEvent }: RequestBodyProps) {
-    const isRequest = !isEvent;
-    const { resolved: info } = parser.deref(infoOrRef);
-    this.description = info.description || '';
-    this.required = info.required;
-
-    const mediaContent = getContentWithLegacyExamples(info);
-    if (mediaContent !== undefined) {
-      this.content = new MediaContentModel(parser, mediaContent, isRequest, options);
-    }
+      throw new Error("STUB");
   }
 }

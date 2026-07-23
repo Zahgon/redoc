@@ -21,14 +21,7 @@ export class CallbackSamples extends React.Component<CallbackSamplesProps> {
   context: RedocNormalizedOptions;
 
   private renderDropdown = props => {
-    return (
-      <DropdownOrLabel
-        Label={MimeLabel}
-        Dropdown={InvertedSimpleDropdown}
-        {...props}
-        variant="dark"
-      />
-    );
+      throw new Error("STUB");
   };
 
   render() {
@@ -39,20 +32,17 @@ export class CallbackSamples extends React.Component<CallbackSamplesProps> {
     }
 
     const operations = callbacks
-      .map(callback => callback.operations.map(operation => operation))
-      .reduce((a, b) => a.concat(b), []);
+      .map(callback => { throw new Error("STUB"); })
+      .reduce((a, b) => { throw new Error("STUB"); }, []);
 
-    const hasSamples = operations.some(operation => operation.codeSamples.length > 0);
+    const hasSamples = operations.some(operation => { throw new Error("STUB"); });
 
     if (!hasSamples) {
       return null;
     }
 
     const dropdownOptions = operations.map((callback, idx) => {
-      return {
-        value: `${callback.httpVerb.toUpperCase()}: ${callback.name}`,
-        idx,
-      };
+        throw new Error("STUB");
     });
 
     return (
@@ -66,13 +56,7 @@ export class CallbackSamples extends React.Component<CallbackSamplesProps> {
             label={'Callback'}
             options={dropdownOptions}
           >
-            {callback => (
-              <CallbackPayloadSample
-                key="callbackPayloadSample"
-                callback={callback}
-                renderDropdown={this.renderDropdown}
-              />
-            )}
+            {callback => { throw new Error("STUB"); }}
           </GenericChildrenSwitcher>
         </SamplesWrapper>
       </div>
@@ -81,6 +65,6 @@ export class CallbackSamples extends React.Component<CallbackSamplesProps> {
 }
 
 export const SamplesWrapper = styled.div`
-  background: ${({ theme }) => theme.codeBlock.backgroundColor};
-  padding: ${props => props.theme.spacing.unit * 4}px;
+  background: ${({ theme }) => { throw new Error("STUB"); }};
+  padding: ${props => { throw new Error("STUB"); }}px;
 `;

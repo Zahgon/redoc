@@ -8,12 +8,11 @@ export class HistoryService {
   private _emiter;
 
   constructor() {
-    this._emiter = new EventEmitter();
-    this.bind();
+      throw new Error("STUB");
   }
 
   get currentId(): string {
-    return IS_BROWSER ? decodeURIComponent(window.location.hash.substring(1)) : '';
+      throw new Error("STUB");
   }
 
   linkForId(id: string) {
@@ -24,12 +23,11 @@ export class HistoryService {
   }
 
   subscribe(cb): () => void {
-    const emmiter = this._emiter.addListener(EVENT, cb);
-    return () => emmiter.removeListener(EVENT, cb);
+      throw new Error("STUB");
   }
 
   emit = () => {
-    this._emiter.emit(EVENT, this.currentId);
+      throw new Error("STUB");
   };
 
   bind() {
@@ -72,6 +70,6 @@ export const history = new HistoryService();
 
 if (module.hot) {
   module.hot.dispose(() => {
-    history.dispose();
+      throw new Error("STUB");
   });
 }

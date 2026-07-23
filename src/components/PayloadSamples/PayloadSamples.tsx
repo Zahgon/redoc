@@ -21,25 +21,12 @@ export class PayloadSamples extends React.Component<PayloadSamplesProps> {
 
     return (
       <MediaTypesSwitch content={mimeContent} renderDropdown={this.renderDropdown} withLabel={true}>
-        {mediaType => (
-          <MediaTypeSamples
-            key="samples"
-            mediaType={mediaType}
-            renderDropdown={this.renderDropdown}
-          />
-        )}
+        {mediaType => { throw new Error("STUB"); }}
       </MediaTypesSwitch>
     );
   }
 
   private renderDropdown = props => {
-    return (
-      <DropdownOrLabel
-        Label={MimeLabel}
-        Dropdown={InvertedSimpleDropdown}
-        {...props}
-        variant="dark"
-      />
-    );
+      throw new Error("STUB");
   };
 }

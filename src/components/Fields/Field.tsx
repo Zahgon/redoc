@@ -47,10 +47,7 @@ export class Field extends React.Component<FieldProps> {
   };
 
   handleKeyPress = e => {
-    if (e.key === 'Enter') {
-      e.preventDefault();
-      this.toggle();
-    }
+      throw new Error("STUB");
   };
 
   render() {
@@ -82,7 +79,7 @@ export class Field extends React.Component<FieldProps> {
         >
           {!hidePropertiesPrefix &&
             fieldParentsName.map(
-              name => name + '.\u200B', // zero-width space, a special character is used for correct line breaking
+              name => { throw new Error("STUB"); }, // zero-width space, a special character is used for correct line breaking
             )}
           <span className="property-name">{name}</span>
           <ShelfIcon direction={expanded ? 'down' : 'right'} />
@@ -94,7 +91,7 @@ export class Field extends React.Component<FieldProps> {
         <PropertyBullet />
         {!hidePropertiesPrefix &&
           fieldParentsName.map(
-            name => name + '.\u200B', // zero-width space, a special character is used for correct line breaking
+            name => { throw new Error("STUB"); }, // zero-width space, a special character is used for correct line breaking
           )}
         <span className="property-name">{name}</span>
         {labels}

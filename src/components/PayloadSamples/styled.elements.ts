@@ -4,23 +4,23 @@ import { Dropdown } from '../../common-elements/Dropdown';
 
 export const MimeLabel = styled.div`
   padding: 0.9em;
-  background-color: ${({ theme }) => transparentize(0.6, theme.rightPanel.backgroundColor)};
+  background-color: ${({ theme }) => { throw new Error("STUB"); }};
   margin: 0 0 10px 0;
   display: block;
-  font-family: ${({ theme }) => theme.typography.headings.fontFamily};
+  font-family: ${({ theme }) => { throw new Error("STUB"); }};
   font-size: 0.929em;
   line-height: 1.5em;
 `;
 
 export const DropdownLabel = styled.span`
-  font-family: ${({ theme }) => theme.typography.headings.fontFamily};
+  font-family: ${({ theme }) => { throw new Error("STUB"); }};
   font-size: 12px;
   position: absolute;
   z-index: 1;
   top: -11px;
   left: 12px;
-  font-weight: ${({ theme }) => theme.typography.fontWeightBold};
-  color: ${({ theme }) => transparentize(0.3, theme.rightPanel.textColor)};
+  font-weight: ${({ theme }) => { throw new Error("STUB"); }};
+  color: ${({ theme }) => { throw new Error("STUB"); }};
 `;
 
 export const DropdownWrapper = styled.div`
@@ -29,7 +29,7 @@ export const DropdownWrapper = styled.div`
 
 export const InvertedSimpleDropdown = styled(Dropdown)`
   label {
-    color: ${({ theme }) => theme.rightPanel.textColor};
+    color: ${({ theme }) => { throw new Error("STUB"); }};
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
@@ -39,7 +39,7 @@ export const InvertedSimpleDropdown = styled(Dropdown)`
   }
   margin: 0 0 10px 0;
   display: block;
-  background-color: ${({ theme }) => transparentize(0.6, theme.rightPanel.backgroundColor)};
+  background-color: ${({ theme }) => { throw new Error("STUB"); }};
   border: none;
   padding: 0.9em 1.6em 0.9em 0.9em;
   box-shadow: none;
@@ -47,12 +47,12 @@ export const InvertedSimpleDropdown = styled(Dropdown)`
   &:focus-within {
     border: none;
     box-shadow: none;
-    background-color: ${({ theme }) => transparentize(0.3, theme.rightPanel.backgroundColor)};
+    background-color: ${({ theme }) => { throw new Error("STUB"); }};
   }
 `;
 
 export const NoSampleLabel = styled.div`
-  font-family: ${props => props.theme.typography.code.fontFamily};
+  font-family: ${props => { throw new Error("STUB"); }};
   font-size: 12px;
   color: #ee807f;
 `;

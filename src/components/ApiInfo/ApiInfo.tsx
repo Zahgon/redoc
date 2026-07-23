@@ -80,17 +80,7 @@ export class ApiInfo extends React.Component<ApiInfoProps> {
               <p>
                 {l('downloadSpecification')}:
                 {downloadUrls?.map(({ title, url }) => {
-                  return (
-                    <DownloadButton
-                      download={downloadFileName || true}
-                      target="_blank"
-                      href={url}
-                      rel="noreferrer"
-                      key={url}
-                    >
-                      {title}
-                    </DownloadButton>
-                  );
+                    throw new Error("STUB");
                 })}
               </p>
             )}

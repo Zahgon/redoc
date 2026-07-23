@@ -18,16 +18,7 @@ export interface CallbackTitleProps {
 }
 
 export const CallbackTitle = (props: CallbackTitleProps) => {
-  const { name, opened, className, onClick, httpVerb, deprecated } = props;
-
-  return (
-    <CallbackTitleWrapper className={className} onClick={onClick || undefined}>
-      <OperationBadgeStyled type={httpVerb}>{shortenHTTPVerb(httpVerb)}</OperationBadgeStyled>
-      <ShelfIcon size={'1.5em'} direction={opened ? 'down' : 'right'} float={'left'} />
-      <CallbackName $deprecated={deprecated}>{name}</CallbackName>
-      {deprecated ? <Badge type="warning"> {l('deprecated')} </Badge> : null}
-    </CallbackTitleWrapper>
-  );
+    throw new Error("STUB");
 };
 
 const CallbackTitleWrapper = styled.button`
@@ -40,13 +31,13 @@ const CallbackTitleWrapper = styled.button`
 
   ${ShelfIcon} {
     polygon {
-      fill: ${({ theme }) => darken(theme.colors.tonalOffset, theme.colors.gray[100])};
+      fill: ${({ theme }) => { throw new Error("STUB"); }};
     }
   }
 `;
 
 const CallbackName = styled.span<{ $deprecated?: boolean }>`
-  text-decoration: ${props => (props.$deprecated ? 'line-through' : 'none')};
+  text-decoration: ${props => { throw new Error("STUB"); }};
   margin-right: 8px;
 `;
 

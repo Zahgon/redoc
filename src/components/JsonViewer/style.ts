@@ -6,10 +6,10 @@ export const jsonStyles = css`
     pointer-events: none;
   }
 
-  font-family: ${props => props.theme.typography.code.fontFamily};
-  font-size: ${props => props.theme.typography.code.fontSize};
+  font-family: ${props => { throw new Error("STUB"); }};
+  font-size: ${props => { throw new Error("STUB"); }};
 
-  white-space: ${({ theme }) => (theme.typography.code.wrap ? 'pre-wrap' : 'pre')};
+  white-space: ${({ theme }) => { throw new Error("STUB"); }};
   contain: content;
   overflow-x: auto;
 
@@ -51,8 +51,8 @@ export const jsonStyles = css`
     background-color: transparent;
     border: 0;
     color: #fff;
-    font-family: ${props => props.theme.typography.code.fontFamily};
-    font-size: ${props => props.theme.typography.code.fontSize};
+    font-family: ${props => { throw new Error("STUB"); }};
+    font-size: ${props => { throw new Error("STUB"); }};
     padding-right: 6px;
     padding-left: 6px;
     padding-top: 0;

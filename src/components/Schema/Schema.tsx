@@ -83,7 +83,7 @@ export class Schema extends React.Component<Partial<SchemaProps>> {
       description: schema.description,
       externalDocs: schema.externalDocs,
       deprecated: false,
-      toggle: () => null,
+      toggle: () => { throw new Error("STUB"); },
       expanded: false,
     } as any as FieldModel; // cast needed for hot-loader to not fail
 

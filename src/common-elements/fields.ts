@@ -17,60 +17,41 @@ export const ClickablePropertyNameCell = styled(PropertyNameCell)`
     border: 0;
     outline: 0;
     font-size: 13px;
-    font-family: ${props => props.theme.typography.code.fontFamily};
+    font-family: ${props => { throw new Error("STUB"); }};
     cursor: pointer;
     padding: 0;
-    color: ${props => props.theme.colors.text.primary};
+    color: ${props => { throw new Error("STUB"); }};
     &:focus {
-      font-weight: ${({ theme }) => theme.typography.fontWeightBold};
+      font-weight: ${({ theme }) => { throw new Error("STUB"); }};
     }
     ${({ kind }) =>
-      kind === 'patternProperties' &&
-      css`
-        display: inline-flex;
-        margin-right: 20px;
-
-        > span.property-name {
-          white-space: break-spaces;
-          text-align: left;
-
-          ::before,
-          ::after {
-            content: '/';
-            filter: opacity(0.2);
-          }
-        }
-
-        > svg {
-          align-self: center;
-        }
-      `}
+      { throw new Error("STUB"); }}
   }
   ${ShelfIcon} {
-    height: ${({ theme }) => theme.schema.arrow.size};
-    width: ${({ theme }) => theme.schema.arrow.size};
+    height: ${({ theme }) => { throw new Error("STUB"); }};
+    width: ${({ theme }) => { throw new Error("STUB"); }};
     polygon {
-      fill: ${({ theme }) => theme.schema.arrow.color};
+      fill: ${({ theme }) => { throw new Error("STUB"); }};
     }
   }
 `;
 
 export const FieldLabel = styled.span`
   vertical-align: middle;
-  font-size: ${({ theme }) => theme.typography.code.fontSize};
+  font-size: ${({ theme }) => { throw new Error("STUB"); }};
   line-height: 20px;
 `;
 
 export const TypePrefix = styled(FieldLabel)`
-  color: ${props => transparentize(0.1, props.theme.schema.typeNameColor)};
+  color: ${props => { throw new Error("STUB"); }};
 `;
 
 export const TypeName = styled(FieldLabel)`
-  color: ${props => props.theme.schema.typeNameColor};
+  color: ${props => { throw new Error("STUB"); }};
 `;
 
 export const TypeTitle = styled(FieldLabel)`
-  color: ${props => props.theme.schema.typeTitleColor};
+  color: ${props => { throw new Error("STUB"); }};
   word-break: break-word;
 `;
 
@@ -79,25 +60,25 @@ export const TypeFormat = TypeName;
 export const RequiredLabel = styled(FieldLabel).attrs({
   as: 'div',
 })`
-  color: ${props => props.theme.schema.requireLabelColor};
-  font-size: ${props => props.theme.schema.labelsTextSize};
+  color: ${props => { throw new Error("STUB"); }};
+  font-size: ${props => { throw new Error("STUB"); }};
   font-weight: normal;
   margin-left: 20px;
   line-height: 1;
 `;
 
 export const PropertyLabel = styled(RequiredLabel)`
-  color: ${props => props.theme.colors.primary.light};
+  color: ${props => { throw new Error("STUB"); }};
 `;
 
 export const RecursiveLabel = styled(FieldLabel)`
-  color: ${({ theme }) => theme.colors.warning.main};
+  color: ${({ theme }) => { throw new Error("STUB"); }};
   font-size: 13px;
 `;
 
 export const PatternLabel = styled(FieldLabel)`
   color: #0e7c86;
-  font-family: ${props => props.theme.typography.code.fontFamily};
+  font-family: ${props => { throw new Error("STUB"); }};
   font-size: 12px;
   &::before,
   &::after {
@@ -108,14 +89,7 @@ export const PatternLabel = styled(FieldLabel)`
 export const ExampleValue = styled(FieldLabel)`
   border-radius: 2px;
   word-break: break-word;
-  ${({ theme }) => `
-    background-color: ${transparentize(0.95, theme.colors.text.primary)};
-    color: ${transparentize(0.1, theme.colors.text.primary)};
-
-    padding: 0 ${theme.spacing.unit}px;
-    border: 1px solid ${transparentize(0.9, theme.colors.text.primary)};
-    font-family: ${theme.typography.code.fontFamily};
-}`};
+  ${({ theme }) => { throw new Error("STUB"); }};
   & + & {
     margin-left: 0;
   }
@@ -126,14 +100,7 @@ export const ExtensionValue = styled(ExampleValue)``;
 
 export const ConstraintItem = styled(FieldLabel)`
   border-radius: 2px;
-  ${({ theme }) => `
-    background-color: ${transparentize(0.95, theme.colors.primary.light)};
-    color: ${transparentize(0.1, theme.colors.primary.main)};
-
-    margin: 0 ${theme.spacing.unit}px;
-    padding: 0 ${theme.spacing.unit}px;
-    border: 1px solid ${transparentize(0.9, theme.colors.primary.main)};
-}`};
+  ${({ theme }) => { throw new Error("STUB"); }};
   & + & {
     margin-left: 0;
   }
@@ -143,10 +110,10 @@ export const ConstraintItem = styled(FieldLabel)`
 export const ToggleButton = styled.button`
   background-color: transparent;
   border: 0;
-  color: ${({ theme }) => theme.colors.text.secondary};
-  margin-left: ${({ theme }) => theme.spacing.unit}px;
+  color: ${({ theme }) => { throw new Error("STUB"); }};
+  margin-left: ${({ theme }) => { throw new Error("STUB"); }}px;
   border-radius: 2px;
   cursor: pointer;
-  outline-color: ${({ theme }) => theme.colors.text.secondary};
+  outline-color: ${({ theme }) => { throw new Error("STUB"); }};
   font-size: 12px;
 `;

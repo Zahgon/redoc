@@ -21,36 +21,13 @@ export interface ObjectDescriptionProps {
 
 export class SchemaDefinition extends React.PureComponent<ObjectDescriptionProps> {
   private static getMediaType(schemaRef: string, exampleRef?: string): OpenAPIMediaType {
-    if (!schemaRef) {
-      return {};
-    }
-
-    const info: OpenAPIMediaType = {
-      schema: { $ref: schemaRef },
-    };
-
-    if (exampleRef) {
-      info.examples = { example: { $ref: exampleRef } };
-    }
-
-    return info;
+      throw new Error("STUB");
   }
 
   private _mediaModel: MediaTypeModel;
 
   private get mediaModel() {
-    const { parser, schemaRef, exampleRef, options } = this.props;
-    if (!this._mediaModel) {
-      this._mediaModel = new MediaTypeModel(
-        parser,
-        'json',
-        false,
-        SchemaDefinition.getMediaType(schemaRef, exampleRef),
-        options,
-      );
-    }
-
-    return this._mediaModel;
+      throw new Error("STUB");
   }
 
   render() {
@@ -81,22 +58,15 @@ export class SchemaDefinition extends React.PureComponent<ObjectDescriptionProps
   }
 
   private renderDropdown = props => {
-    return (
-      <DropdownOrLabel
-        Label={MimeLabel}
-        Dropdown={InvertedSimpleDropdown}
-        {...props}
-        variant="dark"
-      />
-    );
+      throw new Error("STUB");
   };
 }
 
 const MediaSamplesWrap = styled.div`
-  background: ${({ theme }) => theme.codeBlock.backgroundColor};
+  background: ${({ theme }) => { throw new Error("STUB"); }};
   & > div,
   & > pre {
-    padding: ${props => props.theme.spacing.unit * 4}px;
+    padding: ${props => { throw new Error("STUB"); }}px;
     margin: 0;
   }
 

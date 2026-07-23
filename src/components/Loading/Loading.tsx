@@ -9,7 +9,7 @@ const LoadingMessage = styled.div<{ color: string }>`
   text-align: center;
   font-size: 25px;
   margin: 30px 0 20px 0;
-  color: ${props => props.color};
+  color: ${props => { throw new Error("STUB"); }};
 `;
 
 export interface LoadingProps {

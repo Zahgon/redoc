@@ -93,69 +93,7 @@ export class OperationModel implements IMenuItem {
     private options: RedocNormalizedOptions,
     isCallback: boolean = false,
   ) {
-    makeObservable(this);
-
-    this.pointer = operationSpec.pointer;
-
-    this.description = operationSpec.description;
-    this.parent = parent;
-    this.externalDocs = operationSpec.externalDocs;
-
-    this.deprecated = !!operationSpec.deprecated;
-    this.httpVerb = operationSpec.httpVerb;
-    this.deprecated = !!operationSpec.deprecated;
-    this.operationId = operationSpec.operationId;
-    this.path = operationSpec.pathName;
-    this.isCallback = isCallback;
-    this.isWebhook = operationSpec.isWebhook;
-    this.isEvent = this.isCallback || this.isWebhook;
-
-    this.name = getOperationSummary(operationSpec);
-
-    this.sidebarLabel =
-      options.sideNavStyle === SideNavStyleEnum.IdOnly
-        ? this.operationId || this.path
-        : options.sideNavStyle === SideNavStyleEnum.PathOnly
-        ? this.path
-        : this.name;
-    this.badges =
-      operationSpec['x-badges']?.map(({ name, color, position }) => ({
-        name,
-        color: color,
-        position: position || 'after',
-      })) || [];
-
-    if (this.isCallback) {
-      // NOTE: Callbacks by default should not inherit the specification's global `security` definition.
-      // Can be defined individually per-callback in the specification. Defaults to none.
-      this.security = (operationSpec.security || []).map(
-        security => new SecurityRequirementModel(security, parser),
-      );
-
-      // TODO: update getting pathInfo for overriding servers on path level
-      this.servers = normalizeServers('', operationSpec.servers || operationSpec.pathServers || []);
-    } else {
-      this.operationHash = operationSpec.operationId && 'operation/' + operationSpec.operationId;
-      this.id =
-        operationSpec.operationId !== undefined
-          ? (parent ? parent.id + '/' : '') + this.operationHash
-          : parent !== undefined
-          ? parent.id + this.pointer
-          : this.pointer;
-
-      this.security = (operationSpec.security || parser.spec.security || []).map(
-        security => new SecurityRequirementModel(security, parser),
-      );
-
-      this.servers = normalizeServers(
-        parser.specUrl,
-        operationSpec.servers || operationSpec.pathServers || parser.spec.servers || [],
-      );
-    }
-
-    if (options.showExtensions) {
-      this.extensions = extractExtensions(operationSpec, options.showExtensions);
-    }
+      throw new Error("STUB");
   }
 
   /**
@@ -163,7 +101,7 @@ export class OperationModel implements IMenuItem {
    */
   @action
   activate() {
-    this.active = true;
+      throw new Error("STUB");
   }
 
   /**
@@ -171,7 +109,7 @@ export class OperationModel implements IMenuItem {
    */
   @action
   deactivate() {
-    this.active = false;
+      throw new Error("STUB");
   }
 
   /**
@@ -189,108 +127,31 @@ export class OperationModel implements IMenuItem {
   }
 
   collapse() {
-    /* do nothing */
+      throw new Error("STUB");
   }
 
   @memoize
   get requestBody() {
-    return (
-      this.operationSpec.requestBody &&
-      new RequestBodyModel({
-        parser: this.parser,
-        infoOrRef: this.operationSpec.requestBody,
-        options: this.options,
-        isEvent: this.isEvent,
-      })
-    );
+      throw new Error("STUB");
   }
 
   @memoize
   get codeSamples() {
-    const { payloadSampleIdx, hideRequestPayloadSample } = this.options;
-    let samples: Array<OpenAPIXCodeSample | XPayloadSample> =
-      this.operationSpec['x-codeSamples'] || this.operationSpec['x-code-samples'] || [];
-
-    if (this.operationSpec['x-code-samples'] && !isCodeSamplesWarningPrinted) {
-      isCodeSamplesWarningPrinted = true;
-      console.warn('"x-code-samples" is deprecated. Use "x-codeSamples" instead');
-    }
-
-    const requestBodyContent = this.requestBody && this.requestBody.content;
-    if (requestBodyContent && requestBodyContent.hasSample && !hideRequestPayloadSample) {
-      const insertInx = Math.min(samples.length, payloadSampleIdx);
-
-      samples = [
-        ...samples.slice(0, insertInx),
-        {
-          lang: 'payload',
-          label: 'Payload',
-          source: '',
-          requestBodyContent,
-        },
-        ...samples.slice(insertInx),
-      ];
-    }
-
-    return samples;
+      throw new Error("STUB");
   }
 
   @memoize
   get parameters() {
-    const _parameters = mergeParams(
-      this.parser,
-      this.operationSpec.pathParameters,
-      this.operationSpec.parameters,
-      // TODO: fix pointer
-    ).map(paramOrRef => new FieldModel(this.parser, paramOrRef, this.pointer, this.options));
-
-    if (this.options.sortPropsAlphabetically) {
-      return sortByField(_parameters, 'name');
-    }
-    if (this.options.sortRequiredPropsFirst) {
-      return sortByRequired(_parameters);
-    }
-
-    return _parameters;
+      throw new Error("STUB");
   }
 
   @memoize
   get responses() {
-    let hasSuccessResponses = false;
-    return Object.keys(this.operationSpec.responses || [])
-      .filter(code => {
-        if (code === 'default') {
-          return true;
-        }
-
-        if (getStatusCodeType(code) === 'success') {
-          hasSuccessResponses = true;
-        }
-
-        return isStatusCode(code);
-      }) // filter out other props (e.g. x-props)
-      .map(code => {
-        return new ResponseModel({
-          parser: this.parser,
-          code,
-          defaultAsError: hasSuccessResponses,
-          infoOrRef: this.operationSpec.responses[code],
-          options: this.options,
-          isEvent: this.isEvent,
-        });
-      });
+      throw new Error("STUB");
   }
 
   @memoize
   get callbacks() {
-    return Object.keys(this.operationSpec.callbacks || []).map(callbackEventName => {
-      return new CallbackModel(
-        this.parser,
-        callbackEventName,
-        this.operationSpec.callbacks![callbackEventName],
-        this.pointer,
-        this.options,
-      );
-    });
+      throw new Error("STUB");
   }
 }

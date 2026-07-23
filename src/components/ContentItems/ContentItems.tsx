@@ -18,7 +18,7 @@ export class ContentItems extends React.Component<{
       return null;
     }
     return items.map(item => {
-      return <ContentItem key={item.id} item={item} />;
+        throw new Error("STUB");
     });
   }
 }
@@ -61,7 +61,7 @@ export class ContentItem extends React.Component<ContentItemProps> {
   }
 }
 
-const middlePanelWrap = component => <MiddlePanel $compact={true}>{component}</MiddlePanel>;
+const middlePanelWrap = component => { throw new Error("STUB"); };
 
 @observer
 export class SectionItem extends React.Component<ContentItemProps> {

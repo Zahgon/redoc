@@ -5,35 +5,14 @@ import type { OperationModel } from './models';
 import Worker from './SearchWorker.worker';
 
 function getWorker() {
-  let worker: new () => Worker;
-  if (IS_BROWSER) {
-    try {
-      // tslint:disable-next-line
-      worker = require('@redocly/workerize-loader?inline&fallback=false!./SearchWorker.worker');
-    } catch (e) {
-      worker = require('./SearchWorker.worker').default;
-    }
-  } else {
-    worker = require('./SearchWorker.worker').default;
-  }
-  return new worker();
+    throw new Error("STUB");
 }
 
 export class SearchStore<T> {
   searchWorker = getWorker();
 
   indexItems(groups: Array<IMenuItem | OperationModel>) {
-    const recurse = items => {
-      items.forEach(group => {
-        if (group.type !== 'group') {
-          this.add(group.name, (group.description || '').concat(' ', group.path || ''), group.id);
-        }
-        recurse(group.items);
-      });
-    };
-
-    recurse(groups);
-    this.searchWorker.done();
+      throw new Error("STUB");
   }
 
   add(title: string, body: string, meta?: T) {
@@ -58,8 +37,6 @@ export class SearchStore<T> {
   }
 
   fromExternalJS(path?: string, exportName?: string) {
-    if (path && exportName) {
-      this.searchWorker.fromExternalJS(path, exportName);
-    }
+      throw new Error("STUB");
   }
 }

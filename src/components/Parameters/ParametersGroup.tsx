@@ -25,9 +25,7 @@ export class ParametersGroup extends React.PureComponent<ParametersGroupProps, a
         <UnderlinedHeader>{place} Parameters</UnderlinedHeader>
         <PropertiesTable>
           <tbody>
-            {mapWithLast(parameters, (field, isLast) => (
-              <Field key={field.name} isLast={isLast} field={field} showExamples={true} />
-            ))}
+            {mapWithLast(parameters, (field, isLast) => { throw new Error("STUB"); })}
           </tbody>
         </PropertiesTable>
       </div>

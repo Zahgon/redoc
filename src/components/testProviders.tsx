@@ -15,5 +15,5 @@ export default class TestThemeProvider extends React.Component<PropsWithChildren
 }
 
 export function withTheme(children) {
-  return <TestThemeProvider>{children}</TestThemeProvider>;
+    throw new Error("STUB");
 }

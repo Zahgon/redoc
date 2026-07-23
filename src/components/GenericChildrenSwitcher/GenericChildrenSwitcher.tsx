@@ -33,11 +33,7 @@ export class GenericChildrenSwitcher<T> extends React.Component<
   }
 
   switchItem = ({ idx }: DropdownOption) => {
-    if (this.props.items && idx !== undefined) {
-      this.setState({
-        activeItemIdx: idx,
-      });
-    }
+      throw new Error("STUB");
   };
 
   render() {
@@ -48,14 +44,7 @@ export class GenericChildrenSwitcher<T> extends React.Component<
     }
 
     const Wrapper = ({ children }) =>
-      this.props.label ? (
-        <DropdownWrapper>
-          <DropdownLabel>{this.props.label}</DropdownLabel>
-          {children}
-        </DropdownWrapper>
-      ) : (
-        children
-      );
+      { throw new Error("STUB"); };
 
     return (
       <>

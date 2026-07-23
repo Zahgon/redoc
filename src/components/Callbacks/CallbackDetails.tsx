@@ -42,5 +42,5 @@ export class CallbackDetails extends React.Component<CallbackDetailsProps> {
 }
 
 const Description = styled.div`
-  margin-bottom: ${({ theme }) => theme.spacing.unit * 3}px;
+  margin-bottom: ${({ theme }) => { throw new Error("STUB"); }}px;
 `;

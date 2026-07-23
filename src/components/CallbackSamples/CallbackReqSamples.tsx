@@ -15,7 +15,7 @@ export interface PayloadSampleProps {
 export class CallbackPayloadSample extends React.Component<PayloadSampleProps> {
   render() {
     const payloadSample = this.props.callback.codeSamples.find(sample =>
-      isPayloadSample(sample),
+      { throw new Error("STUB"); },
     ) as XPayloadSample | undefined;
 
     if (!payloadSample) {

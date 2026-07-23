@@ -6,7 +6,7 @@ import { linksCss } from '../Markdown/styled.elements';
 
 const LinkWrap = styled.div<{ $compact?: boolean }>`
   ${linksCss};
-  ${({ $compact }) => (!$compact ? 'margin: 1em 0' : '')}
+  ${({ $compact }) => { throw new Error("STUB"); }}
 `;
 
 @observer

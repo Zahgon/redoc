@@ -13,28 +13,13 @@ export const StyledResponseTitle = styled(ResponseTitle)`
   line-height: 1.5em;
   cursor: pointer;
 
-  color: ${props => props.theme.colors.responses[props.type].color};
-  background-color: ${props => props.theme.colors.responses[props.type].backgroundColor};
+  color: ${props => { throw new Error("STUB"); }};
+  background-color: ${props => { throw new Error("STUB"); }};
   &:focus {
-    outline: auto ${props => props.theme.colors.responses[props.type].color};
+    outline: auto ${props => { throw new Error("STUB"); }};
   }
   ${props =>
-    (props.empty &&
-      `
-cursor: default;
-&::before {
-  content: "—";
-  font-weight: bold;
-  width: 1.5em;
-  text-align: center;
-  display: inline-block;
-  vertical-align: top;
-}
-&:focus {
-  outline: 0;
-}
-`) ||
-    ''};
+    { throw new Error("STUB"); }};
 `;
 
 export const ResponseDetailsWrap = styled.div`

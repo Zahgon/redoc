@@ -25,8 +25,8 @@ export const ScopeNameList = styled.ul`
 `;
 
 export const ScopeName = styled.code`
-  font-size: ${props => props.theme.typography.code.fontSize};
-  font-family: ${props => props.theme.typography.code.fontFamily};
+  font-size: ${props => { throw new Error("STUB"); }};
+  font-family: ${props => { throw new Error("STUB"); }};
   margin: 0 3px;
   padding: 0.2em;
   display: inline-block;
@@ -56,10 +56,10 @@ export const SecurityRequirementAndWrap = styled.span`
 `;
 
 export const SecurityRequirementOrWrap = styled.span<{ $expanded?: boolean }>`
-  ${p => !p.$expanded && `white-space: nowrap;`}
+  ${p => { throw new Error("STUB"); }}
   &:after {
     content: ' or ';
-    ${p => p.$expanded && `content: ' or \\a';`}
+    ${p => { throw new Error("STUB"); }}
     white-space: pre;
   }
 
@@ -77,17 +77,12 @@ export const AuthHeaderColumn = styled.div`
 `;
 
 export const SecuritiesColumn = styled.div<{ $expanded?: boolean }>`
-  width: ${props => props.theme.schema.defaultDetailsWidth};
+  width: ${props => { throw new Error("STUB"); }};
   text-overflow: ellipsis;
   border-radius: 4px;
   overflow: hidden;
   ${p =>
-    p.$expanded &&
-    `background: ${p.theme.colors.gray['100']};
-     padding: 8px 9.6px;
-     margin: 20px 0;
-     width: 100%;
-    `};
+    { throw new Error("STUB"); }};
   ${media.lessThan('small')`
     margin-top: 10px;
   `}
@@ -102,7 +97,7 @@ export const Wrap = styled.div<{ $expanded?: boolean }>`
   width: 100%;
   display: flex;
   margin: 1em 0;
-  flex-direction: ${p => (p.$expanded ? 'column' : 'row')};
+  flex-direction: ${p => { throw new Error("STUB"); }};
   ${media.lessThan('small')`
     flex-direction: column;
   `}
@@ -113,14 +108,14 @@ export const SecurityRow = styled.div`
 `;
 
 export const SecurityDetailsStyle = styled.div`
-  border-bottom: 1px solid ${({ theme }) => theme.colors.border.dark};
+  border-bottom: 1px solid ${({ theme }) => { throw new Error("STUB"); }};
   margin-bottom: 1.5em;
   padding-bottom: 0.7em;
 
   h5 {
     line-height: 1em;
     margin: 0 0 0.6em;
-    font-size: ${({ theme }) => theme.typography.fontSize};
+    font-size: ${({ theme }) => { throw new Error("STUB"); }};
   }
 
   .redoc-markdown p:first-child {

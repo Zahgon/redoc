@@ -30,41 +30,18 @@ export class OpenAPIParser {
     specUrl?: string,
     private options: RedocNormalizedOptions = new RedocNormalizedOptions({}),
   ) {
-    this.validate(spec);
-
-    this.spec = spec;
-    this.allowMergeRefs = spec.openapi.startsWith('3.1');
-
-    const href = IS_BROWSER ? window.location.href : '';
-    if (typeof specUrl === 'string') {
-      this.specUrl = href ? new URL(specUrl, href).href : specUrl;
-    }
+      throw new Error("STUB");
   }
 
   validate(spec: Record<string, any>): void {
-    if (spec.openapi === undefined) {
-      throw new Error('Document must be valid OpenAPI 3.0.0 definition');
-    }
+      throw new Error("STUB");
   }
 
   /**
    * get spec part by JsonPointer ($ref)
    */
   byRef = <T = any>(ref: string): T | undefined => {
-    let res;
-    if (!this.spec) {
-      return;
-    }
-    if (ref.charAt(0) !== '#') {
-      ref = '#' + ref;
-    }
-    ref = decodeURIComponent(ref);
-    try {
-      res = JsonPointer.get(this.spec, ref);
-    } catch (e) {
-      // do nothing
-    }
-    return res || {};
+      throw new Error("STUB");
   };
 
   /**
@@ -135,15 +112,7 @@ export class OpenAPIParser {
       mergeAsAllOf &&
       keys.some(
         k =>
-          ![
-            'description',
-            'title',
-            'externalDocs',
-            'x-refsStack',
-            'x-parentRefs',
-            'readOnly',
-            'writeOnly',
-          ].includes(k),
+          { throw new Error("STUB"); },
       )
     ) {
       const { description, title, readOnly, writeOnly, ...restSchema } = rest as OpenAPISchema;
@@ -199,25 +168,9 @@ export class OpenAPIParser {
     const allOfSchemas = uniqByPropIncludeMissing(
       schema.allOf
         .map((subSchema: OpenAPISchema) => {
-          const { resolved, refsStack: subRefsStack } = this.deref(subSchema, refsStack, true);
-
-          const subRef = subSchema.$ref || undefined;
-          const subMerged = this.mergeAllOf(resolved, subRef, subRefsStack);
-          if (subMerged['x-circular-ref'] && subMerged.allOf) {
-            // if mergeAllOf is circular and still contains allOf, we should ignore it
-            return undefined;
-          }
-          if (subRef) {
-            // collect information for implicit descriminator lookup
-            receiver['x-parentRefs']?.push(...(subMerged['x-parentRefs'] || []), subRef);
-          }
-          return {
-            $ref: subRef,
-            refsStack: pushRef(subRefsStack, subRef),
-            schema: subMerged,
-          };
+            throw new Error("STUB");
         })
-        .filter(child => child !== undefined) as Array<{
+        .filter(child => { throw new Error("STUB"); }) as Array<{
         schema: MergedOpenAPISchema;
         refsStack: string[];
         $ref?: string;
@@ -348,7 +301,7 @@ export class OpenAPIParser {
       if (
         def.allOf !== undefined &&
         def.allOf.find(
-          (obj: OpenAPISchema) => obj.$ref !== undefined && $refs.indexOf(obj.$ref) > -1,
+          (obj: OpenAPISchema) => { throw new Error("STUB"); },
         )
       ) {
         res['#/components/schemas/' + defName] = [def['x-discriminator-value'] || defName];
@@ -374,10 +327,7 @@ export class OpenAPIParser {
         const siblingValues = Object.keys(sub).length > 0 ? [sub] : [];
         return {
           oneOf: oneOf.map((part: OpenAPISchema) => {
-            return {
-              allOf: [...beforeAllOf, ...siblingValues, part, ...afterAllOf],
-              'x-refsStack': refsStack,
-            };
+              throw new Error("STUB");
           }),
         };
       }
@@ -393,8 +343,6 @@ export class OpenAPIParser {
 function uniqByPropIncludeMissing<T extends object>(arr: T[], prop: keyof T): T[] {
   const seen = new Set();
   return arr.filter(item => {
-    const k = item[prop];
-    if (!k) return true;
-    return k && !seen.has(k) && seen.add(k);
+      throw new Error("STUB");
   });
 }

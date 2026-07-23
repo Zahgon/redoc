@@ -8,17 +8,7 @@ export interface FieldDetailProps {
 }
 
 function FieldDetailComponent({ value, label, raw }: FieldDetailProps) {
-  if (value === undefined) {
-    return null;
-  }
-
-  const stringifyValue = raw ? String(value) : JSON.stringify(value);
-
-  return (
-    <div>
-      <FieldLabel> {label} </FieldLabel> <ExampleValue>{stringifyValue}</ExampleValue>
-    </div>
-  );
+    throw new Error("STUB");
 }
 
 export const FieldDetail = React.memo<FieldDetailProps>(FieldDetailComponent);

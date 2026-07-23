@@ -22,11 +22,7 @@ export class MediaTypeSamples extends React.Component<PayloadSamplesProps, Media
     activeIdx: 0,
   };
   switchMedia = ({ idx }: DropdownOption) => {
-    if (idx !== undefined) {
-      this.setState({
-        activeIdx: idx,
-      });
-    }
+      throw new Error("STUB");
   };
   render() {
     const { activeIdx } = this.state;
@@ -42,10 +38,7 @@ export class MediaTypeSamples extends React.Component<PayloadSamplesProps, Media
 
     if (examplesNames.length > 1) {
       const options = examplesNames.map((name, idx) => {
-        return {
-          value: examples[name].summary || name,
-          idx,
-        };
+          throw new Error("STUB");
       });
 
       const example = examples[examplesNames[activeIdx]];

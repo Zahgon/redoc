@@ -35,36 +35,12 @@ export class GroupModel implements IMenuItem {
     tagOrGroup: OpenAPITag | MarkdownHeading,
     parent?: GroupModel,
   ) {
-    makeObservable(this);
-
-    // markdown headings already have ids calculated as they are needed for heading anchors
-    this.id = (tagOrGroup as MarkdownHeading).id || type + '/' + safeSlugify(tagOrGroup.name);
-    this.type = type;
-    this.name = tagOrGroup['x-displayName'] || tagOrGroup.name;
-    this.level = (tagOrGroup as MarkdownHeading).level || 1;
-
-    this.sidebarLabel = this.name;
-
-    // remove sections from markdown, same as in ApiInfo
-    this.description = tagOrGroup.description || '';
-
-    const items = (tagOrGroup as MarkdownHeading).items;
-    if (items && items.length) {
-      this.description = MarkdownRenderer.getTextBeforeHading(this.description, items[0].name);
-    }
-
-    this.parent = parent;
-    this.externalDocs = (tagOrGroup as OpenAPITag).externalDocs;
-
-    // groups are active (expanded) by default
-    if (this.type === 'group') {
-      this.expanded = true;
-    }
+      throw new Error("STUB");
   }
 
   @action
   activate() {
-    this.active = true;
+      throw new Error("STUB");
   }
 
   @action
@@ -77,15 +53,11 @@ export class GroupModel implements IMenuItem {
 
   @action
   collapse() {
-    // disallow collapsing groups
-    if (this.type === 'group') {
-      return;
-    }
-    this.expanded = false;
+      throw new Error("STUB");
   }
 
   @action
   deactivate() {
-    this.active = false;
+      throw new Error("STUB");
   }
 }

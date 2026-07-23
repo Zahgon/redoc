@@ -19,25 +19,6 @@ export interface SecurityDefsProps {
 
 export class SecurityDefs extends React.PureComponent<SecurityDefsProps> {
   render() {
-    return this.props.securitySchemes.schemes.map(scheme => (
-      <Section id={scheme.sectionId} key={scheme.id}>
-        <Row>
-          <MiddlePanel>
-            <H2>
-              <ShareLink to={scheme.sectionId} />
-              {scheme.displayName}
-            </H2>
-            <Markdown source={scheme.description || ''} />
-            <SecurityDetailsStyle>
-              <SecurityRow>
-                <b>Security Scheme Type: </b>
-                <span>{AUTH_TYPES[scheme.type] || scheme.type}</span>
-              </SecurityRow>
-              <SecurityDetails scheme={scheme} />
-            </SecurityDetailsStyle>
-          </MiddlePanel>
-        </Row>
-      </Section>
-    ));
+    return this.props.securitySchemes.schemes.map(scheme => { throw new Error("STUB"); });
   }
 }

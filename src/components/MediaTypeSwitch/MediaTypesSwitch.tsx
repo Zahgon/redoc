@@ -21,9 +21,7 @@ export interface MediaTypesSwitchProps {
 @observer
 export class MediaTypesSwitch extends React.Component<MediaTypesSwitchProps> {
   switchMedia = ({ idx }: DropdownOption) => {
-    if (this.props.content && idx !== undefined) {
-      this.props.content.activate(idx);
-    }
+      throw new Error("STUB");
   };
 
   render() {
@@ -34,21 +32,11 @@ export class MediaTypesSwitch extends React.Component<MediaTypesSwitchProps> {
     const activeMimeIdx = content.activeMimeIdx;
 
     const options = content.mediaTypes.map((mime, idx) => {
-      return {
-        value: mime.name,
-        idx,
-      };
+        throw new Error("STUB");
     });
 
     const Wrapper = ({ children }) =>
-      this.props.withLabel ? (
-        <DropdownWrapper>
-          <DropdownLabel>Content type</DropdownLabel>
-          {children}
-        </DropdownWrapper>
-      ) : (
-        children
-      );
+      { throw new Error("STUB"); };
 
     return (
       <>

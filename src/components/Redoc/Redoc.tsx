@@ -25,11 +25,11 @@ export class Redoc extends React.Component<RedocProps> {
   };
 
   componentDidMount() {
-    this.props.store.onDidMount();
+      throw new Error("STUB");
   }
 
   componentWillUnmount() {
-    this.props.store.dispose();
+      throw new Error("STUB");
   }
 
   render() {

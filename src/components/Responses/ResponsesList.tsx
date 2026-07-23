@@ -8,7 +8,7 @@ const ResponsesHeader = styled.h3`
   font-size: 1.3em;
   padding: 0.2em 0;
   margin: 3em 0 1.1em;
-  color: ${({ theme }) => theme.colors.text.primary};
+  color: ${({ theme }) => { throw new Error("STUB"); }};
   font-weight: normal;
 `;
 
@@ -29,7 +29,7 @@ export class ResponsesList extends React.PureComponent<ResponseListProps> {
       <div>
         <ResponsesHeader>{isCallback ? l('callbackResponses') : l('responses')}</ResponsesHeader>
         {responses.map(response => {
-          return <ResponseView key={response.code} response={response} />;
+            throw new Error("STUB");
         })}
       </div>
     );

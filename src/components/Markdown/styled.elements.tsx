@@ -6,16 +6,16 @@ import { StyledComponent } from 'styled-components';
 
 export const linksCss = css`
   a {
-    text-decoration: ${props => props.theme.typography.links.textDecoration};
-    color: ${props => props.theme.typography.links.color};
+    text-decoration: ${props => { throw new Error("STUB"); }};
+    color: ${props => { throw new Error("STUB"); }};
 
     &:visited {
-      color: ${props => props.theme.typography.links.visited};
+      color: ${props => { throw new Error("STUB"); }};
     }
 
     &:hover {
-      color: ${props => props.theme.typography.links.hover};
-      text-decoration: ${props => props.theme.typography.links.hoverTextDecoration};
+      color: ${props => { throw new Error("STUB"); }};
+      text-decoration: ${props => { throw new Error("STUB"); }};
     }
   }
 `;
@@ -27,9 +27,9 @@ export const StyledMarkdownBlock = styled(
     { $compact?: boolean; $inline?: boolean }
   >,
 )`
-  font-family: ${props => props.theme.typography.fontFamily};
-  font-weight: ${props => props.theme.typography.fontWeightRegular};
-  line-height: ${props => props.theme.typography.lineHeight};
+  font-family: ${props => { throw new Error("STUB"); }};
+  font-weight: ${props => { throw new Error("STUB"); }};
+  line-height: ${props => { throw new Error("STUB"); }};
 
   p {
     &:last-child {
@@ -38,53 +38,42 @@ export const StyledMarkdownBlock = styled(
   }
 
   ${({ $compact }) =>
-    $compact &&
-    `
-    p:first-child {
-      margin-top: 0;
-    }
-    p:last-child {
-      margin-bottom: 0;
-    }
-  `}
+    { throw new Error("STUB"); }}
 
   ${({ $inline }) =>
-    $inline &&
-    ` p {
-    display: inline-block;
-  }`}
+    { throw new Error("STUB"); }}
 
   h1 {
     ${headerCommonMixin(1)};
-    color: ${props => props.theme.colors.primary.main};
+    color: ${props => { throw new Error("STUB"); }};
     margin-top: 0;
   }
 
   h2 {
     ${headerCommonMixin(2)};
-    color: ${props => props.theme.colors.text.primary};
+    color: ${props => { throw new Error("STUB"); }};
   }
 
   code {
-    color: ${({ theme }) => theme.typography.code.color};
-    background-color: ${({ theme }) => theme.typography.code.backgroundColor};
+    color: ${({ theme }) => { throw new Error("STUB"); }};
+    background-color: ${({ theme }) => { throw new Error("STUB"); }};
 
-    font-family: ${props => props.theme.typography.code.fontFamily};
+    font-family: ${props => { throw new Error("STUB"); }};
     border-radius: 2px;
     border: 1px solid rgba(38, 50, 56, 0.1);
-    padding: 0 ${({ theme }) => theme.spacing.unit}px;
-    font-size: ${props => props.theme.typography.code.fontSize};
-    font-weight: ${({ theme }) => theme.typography.code.fontWeight};
+    padding: 0 ${({ theme }) => { throw new Error("STUB"); }}px;
+    font-size: ${props => { throw new Error("STUB"); }};
+    font-weight: ${({ theme }) => { throw new Error("STUB"); }};
 
     word-break: break-word;
   }
 
   pre {
-    font-family: ${props => props.theme.typography.code.fontFamily};
-    white-space: ${({ theme }) => (theme.typography.code.wrap ? 'pre-wrap' : 'pre')};
-    background-color: ${({ theme }) => theme.codeBlock.backgroundColor};
+    font-family: ${props => { throw new Error("STUB"); }};
+    white-space: ${({ theme }) => { throw new Error("STUB"); }};
+    background-color: ${({ theme }) => { throw new Error("STUB"); }};
     color: white;
-    padding: ${props => props.theme.spacing.unit * 4}px;
+    padding: ${props => { throw new Error("STUB"); }}px;
     overflow-x: auto;
     line-height: normal;
     border-radius: 0;
@@ -145,7 +134,7 @@ export const StyledMarkdownBlock = styled(
     border-top: 1px solid #ccc;
 
     &:nth-child(2n) {
-      background-color: ${({ theme }) => theme.schema.nestedBackground};
+      background-color: ${({ theme }) => { throw new Error("STUB"); }};
     }
   }
 

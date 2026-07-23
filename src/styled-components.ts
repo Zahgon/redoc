@@ -14,30 +14,15 @@ const {
 
 export const media = {
   lessThan(breakpoint, print?: boolean, extra?: string) {
-    return (...args) => css`
-      @media ${print ? 'print, ' : ''} screen and (max-width: ${props =>
-          props.theme.breakpoints[breakpoint]}) ${extra || ''} {
-        ${(css as any)(...args)};
-      }
-    `;
+    return (...args) => { throw new Error("STUB"); };
   },
 
   greaterThan(breakpoint) {
-    return (...args) => css`
-      @media (min-width: ${props => props.theme.breakpoints[breakpoint]}) {
-        ${(css as any)(...args)};
-      }
-    `;
+      throw new Error("STUB");
   },
 
   between(firstBreakpoint, secondBreakpoint) {
-    return (...args) => css`
-      @media (min-width: ${props =>
-          props.theme.breakpoints[firstBreakpoint]}) and (max-width: ${props =>
-          props.theme.breakpoints[secondBreakpoint]}) {
-        ${(css as any)(...args)};
-      }
-    `;
+      throw new Error("STUB");
   },
 };
 
@@ -46,9 +31,6 @@ export default styled;
 
 export function extensionsHook(styledName: string) {
   return props => {
-    if (!props.theme.extensionsHook) {
-      return;
-    }
-    return props.theme.extensionsHook(styledName, props);
+      throw new Error("STUB");
   };
 }

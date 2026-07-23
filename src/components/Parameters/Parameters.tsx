@@ -32,7 +32,7 @@ export class Parameters extends React.PureComponent<ParametersProps> {
   orderParams(params: FieldModel[]): Record<string, FieldModel[]> {
     const res = {};
     params.forEach(param => {
-      safePush(res, param.in, param);
+        throw new Error("STUB");
     });
     return res;
   }
@@ -55,9 +55,7 @@ export class Parameters extends React.PureComponent<ParametersProps> {
 
     return (
       <>
-        {paramsPlaces.map(place => (
-          <ParametersGroup key={place} place={place} parameters={paramsMap[place]} />
-        ))}
+        {paramsPlaces.map(place => { throw new Error("STUB"); })}
         {bodyContent && (
           <BodyContent
             content={bodyContent}
@@ -74,16 +72,7 @@ function DropdownWithinHeader({
   bodyRequired,
   ...props
 }: DropdownOrLabelProps & { bodyRequired?: boolean }) {
-  const isRequired = typeof bodyRequired === 'boolean' && !!bodyRequired;
-  const isOptional = typeof bodyRequired === 'boolean' && !bodyRequired;
-
-  return (
-    <UnderlinedHeader key="header">
-      Request Body schema: <DropdownOrLabel {...props} />
-      {isRequired && <RequiredBody>required</RequiredBody>}
-      {isOptional && <OptionalBody>optional</OptionalBody>}
-    </UnderlinedHeader>
-  );
+    throw new Error("STUB");
 }
 
 export function BodyContent(props: {
@@ -91,31 +80,7 @@ export function BodyContent(props: {
   description?: string;
   bodyRequired?: boolean;
 }): JSX.Element {
-  const { content, description, bodyRequired } = props;
-  const { isRequestType } = content;
-  return (
-    <MediaTypesSwitch
-      content={content}
-      renderDropdown={props => <DropdownWithinHeader bodyRequired={bodyRequired} {...props} />}
-    >
-      {({ schema }) => {
-        return (
-          <>
-            {description !== undefined && <Markdown source={description} />}
-            {schema?.type === 'object' && (
-              <ConstraintsView constraints={schema?.constraints || []} />
-            )}
-            <Schema
-              skipReadOnly={isRequestType}
-              skipWriteOnly={!isRequestType}
-              key="schema"
-              schema={schema}
-            />
-          </>
-        );
-      }}
-    </MediaTypesSwitch>
-  );
+    throw new Error("STUB");
 }
 
 const commonStyles = `
@@ -130,6 +95,6 @@ const RequiredBody = styled(RequiredLabel)`
 
 const OptionalBody = styled('div')`
   ${commonStyles}
-  color: ${({ theme }) => theme.colors.text.secondary};
-  font-size: ${props => props.theme.schema.labelsTextSize};
+  color: ${({ theme }) => { throw new Error("STUB"); }};
+  font-size: ${props => { throw new Error("STUB"); }};
 `;

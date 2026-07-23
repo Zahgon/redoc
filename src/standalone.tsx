@@ -32,7 +32,7 @@ function parseOptionsFromElement(element: Element) {
   const attrMap = attributesMap(element);
   const res = {};
   for (const attrName in attrMap) {
-    const optionName = attrName.replace(/-(.)/g, (_, $1) => $1.toUpperCase());
+    const optionName = attrName.replace(/-(.)/g, (_, $1) => { throw new Error("STUB"); });
     const optionValue = attrMap[attrName];
     res[optionName] = attrName === 'theme' ? JSON.parse(optionValue) : optionValue;
     // TODO: normalize options
@@ -75,9 +75,7 @@ export function init(
 }
 
 export function destroy(element: Element | null = querySelector('redoc')): void {
-  if (element) {
-    createRoot(element).unmount();
-  }
+    throw new Error("STUB");
 }
 
 export function hydrate(
@@ -85,15 +83,7 @@ export function hydrate(
   element: Element | null = querySelector('redoc'),
   callback?: () => void,
 ) {
-  debugTime('Redoc create store');
-  const store = AppStore.fromJS(state);
-  debugTimeEnd('Redoc create store');
-
-  setTimeout(() => {
-    debugTime('Redoc hydrate');
-    hydrateRoot(element!, <Redoc store={store} />, { onRecoverableError: callback });
-    debugTimeEnd('Redoc hydrate');
-  }, 0);
+    throw new Error("STUB");
 }
 
 /**

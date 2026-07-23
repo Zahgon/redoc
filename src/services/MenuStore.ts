@@ -22,10 +22,7 @@ export class MenuStore {
    * Used before hydrating from server-side rendered html to scroll page faster
    */
   static updateOnHistory(id: string = historyInst.currentId, scroll: ScrollService) {
-    if (!id) {
-      return;
-    }
-    scroll.scrollIntoViewBySelector(`[${SECTION_ATTR}="${escapeHTMLAttrChars(id)}"]`);
+      throw new Error("STUB");
   }
 
   /**
@@ -55,29 +52,21 @@ export class MenuStore {
    * @param scroll scroll service instance used by this menu
    */
   constructor(spec: SpecStore, public scroll: ScrollService, public history: HistoryService) {
-    makeObservable(this);
-
-    this.items = spec.contentItems;
-
-    this.flatItems = flattenByProp(this.items || [], 'items');
-    this.flatItems.forEach((item, idx) => (item.absoluteIdx = idx));
-
-    this.subscribe();
+      throw new Error("STUB");
   }
 
   subscribe() {
-    this._unsubscribe = this.scroll.subscribe(this.updateOnScroll);
-    this._hashUnsubscribe = this.history.subscribe(this.updateOnHistory);
+      throw new Error("STUB");
   }
 
   @action
   toggleSidebar() {
-    this.sideBarOpened = this.sideBarOpened ? false : true;
+      throw new Error("STUB");
   }
 
   @action
   closeSidebar() {
-    this.sideBarOpened = false;
+      throw new Error("STUB");
   }
 
   /**
@@ -85,32 +74,7 @@ export class MenuStore {
    * @param isScrolledDown whether last scroll was downside
    */
   updateOnScroll = (isScrolledDown: boolean): void => {
-    const step = isScrolledDown ? 1 : -1;
-    let itemIdx = this.activeItemIdx;
-    while (true) {
-      if (itemIdx === -1 && !isScrolledDown) {
-        break;
-      }
-
-      if (itemIdx >= this.flatItems.length - 1 && isScrolledDown) {
-        break;
-      }
-
-      if (isScrolledDown) {
-        const el = this.getElementAtOrFirstChild(itemIdx + 1);
-        if (this.scroll.isElementBellow(el)) {
-          break;
-        }
-      } else {
-        const el = this.getElementAt(itemIdx);
-        if (this.scroll.isElementAbove(el)) {
-          break;
-        }
-      }
-      itemIdx += step;
-    }
-
-    this.activate(this.flatItems[itemIdx], true, true);
+      throw new Error("STUB");
   };
 
   /**
@@ -118,22 +82,7 @@ export class MenuStore {
    * @param id current hash
    */
   updateOnHistory = (id: string = this.history.currentId) => {
-    if (!id) {
-      return;
-    }
-    let item: IMenuItem | undefined;
-
-    item = this.flatItems.find(i => i.id === id);
-
-    if (item) {
-      this.activateAndScroll(item, false);
-    } else {
-      if (id.startsWith(SECURITY_SCHEMES_SECTION_PREFIX)) {
-        item = this.flatItems.find(i => SECURITY_SCHEMES_SECTION_PREFIX.startsWith(i.id));
-        this.activateAndScroll(item, false);
-      }
-      this.scroll.scrollIntoViewBySelector(`[${SECTION_ATTR}="${escapeHTMLAttrChars(id)}"]`);
-    }
+      throw new Error("STUB");
   };
 
   /**
@@ -141,8 +90,7 @@ export class MenuStore {
    * @param idx item absolute index
    */
   getElementAt(idx: number): Element | null {
-    const item = this.flatItems[idx];
-    return (item && querySelector(`[${SECTION_ATTR}="${escapeHTMLAttrChars(item.id)}"]`)) || null;
+      throw new Error("STUB");
   }
 
   /**
@@ -150,22 +98,18 @@ export class MenuStore {
    * @param idx item absolute index
    */
   getElementAtOrFirstChild(idx: number): Element | null {
-    let item = this.flatItems[idx];
-    if (item && item.type === 'group') {
-      item = item.items[0];
-    }
-    return (item && querySelector(`[${SECTION_ATTR}="${escapeHTMLAttrChars(item.id)}"]`)) || null;
+      throw new Error("STUB");
   }
 
   /**
    * current active item
    */
   get activeItem(): IMenuItem {
-    return this.flatItems[this.activeItemIdx] || undefined;
+      throw new Error("STUB");
   }
 
   getItemById = (id: string) => {
-    return this.flatItems.find(item => item.id === id);
+      throw new Error("STUB");
   };
 
   /**
@@ -180,34 +124,7 @@ export class MenuStore {
     updateLocation: boolean = true,
     rewriteHistory: boolean = false,
   ) {
-    if ((this.activeItem && this.activeItem.id) === (item && item.id)) {
-      return;
-    }
-
-    if (item && item.type === 'group') {
-      return;
-    }
-
-    this.deactivate(this.activeItem);
-    if (!item) {
-      this.activeItemIdx = -1;
-      this.history.replace('', rewriteHistory);
-      return;
-    }
-
-    // do not allow activating group items
-    // TODO: control over options
-    if (item.depth <= GROUP_DEPTH) {
-      return;
-    }
-
-    this.activeItemIdx = item.absoluteIdx!;
-    if (updateLocation) {
-      this.history.replace(encodeURI(item.id), rewriteHistory);
-    }
-
-    item.activate();
-    item.expand();
+      throw new Error("STUB");
   }
 
   /**
@@ -215,14 +132,7 @@ export class MenuStore {
    * @param item item to deactivate
    */
   deactivate(item: IMenuItem | undefined) {
-    if (item === undefined) {
-      return;
-    }
-    item.deactivate();
-    while (item !== undefined) {
-      item.collapse();
-      item = item.parent;
-    }
+      throw new Error("STUB");
   }
 
   /**
@@ -235,20 +145,14 @@ export class MenuStore {
     updateLocation?: boolean,
     rewriteHistory?: boolean,
   ) {
-    // item here can be a copy from search results so find corresponding item from menu
-    const menuItem = (item && this.getItemById(item.id)) || item;
-    this.activate(menuItem, updateLocation, rewriteHistory);
-    this.scrollToActive();
-    if (!menuItem || !menuItem.items.length) {
-      this.closeSidebar();
-    }
+      throw new Error("STUB");
   }
 
   /**
    * scrolls to active section
    */
   scrollToActive(): void {
-    this.scroll.scrollIntoView(this.getElementAt(this.activeItemIdx));
+      throw new Error("STUB");
   }
 
   dispose() {

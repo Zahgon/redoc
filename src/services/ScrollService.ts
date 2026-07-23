@@ -11,9 +11,7 @@ export class ScrollService {
   private _emiter: EventEmitter;
   private _prevOffsetY = 0;
   constructor(private options: RedocNormalizedOptions) {
-    this._scrollParent = IS_BROWSER ? window : undefined;
-    this._emiter = new EventEmitter();
-    this.bind();
+      throw new Error("STUB");
   }
 
   bind() {
@@ -41,23 +39,15 @@ export class ScrollService {
   }
 
   isElementBellow(el: Element | null) {
-    if (el === null) {
-      return;
-    }
-    return el.getBoundingClientRect().top > this.options.scrollYOffset();
+      throw new Error("STUB");
   }
 
   isElementAbove(el: Element | null) {
-    if (el === null) {
-      return;
-    }
-    const top = el.getBoundingClientRect().top;
-    return (top > 0 ? Math.floor(top) : Math.ceil(top)) <= this.options.scrollYOffset();
+      throw new Error("STUB");
   }
 
   subscribe(cb): () => void {
-    const emmiter = this._emiter.addListener(EVENT, cb);
-    return () => emmiter.removeListener(EVENT, cb);
+      throw new Error("STUB");
   }
 
   scrollIntoView(element: Element | null) {
@@ -72,16 +62,12 @@ export class ScrollService {
   }
 
   scrollIntoViewBySelector(selector: string) {
-    const element = querySelector(selector);
-    this.scrollIntoView(element);
+      throw new Error("STUB");
   }
 
   @bind
   @Throttle(100)
   handleScroll() {
-    const scrollY = this.scrollY();
-    const isScrolledDown = scrollY - this._prevOffsetY > 0;
-    this._prevOffsetY = this.scrollY();
-    this._emiter.emit(EVENT, isScrolledDown);
+      throw new Error("STUB");
   }
 }

@@ -26,13 +26,7 @@ export function mapValues<T, P>(
   object: Record<string, T>,
   iteratee: (val: T, key: string, obj: Record<string, T>) => P,
 ): Record<string, P> {
-  const res: { [key: string]: P } = {};
-  for (const key in object) {
-    if (object.hasOwnProperty(key)) {
-      res[key] = iteratee(object[key], key, object);
-    }
-  }
-  return res;
+    throw new Error("STUB");
 }
 
 /**
@@ -44,41 +38,19 @@ export function flattenByProp<T extends object, P extends keyof T>(
   collectionItems: T[],
   prop: P,
 ): T[] {
-  const res: T[] = [];
-  const iterate = (items: T[]) => {
-    for (const item of items) {
-      res.push(item);
-      if (item[prop]) {
-        iterate(item[prop] as any as T[]);
-      }
-    }
-  };
-  iterate(collectionItems);
-  return res;
+    throw new Error("STUB");
 }
 
 export function stripTrailingSlash(path: string): string {
-  if (path.endsWith('/')) {
-    return path.substring(0, path.length - 1);
-  }
-  return path;
+    throw new Error("STUB");
 }
 
 export function isNumeric(n: any): n is number {
-  return !isNaN(parseFloat(n)) && isFinite(n);
+    throw new Error("STUB");
 }
 
 export function appendToMdHeading(md: string, heading: string, content: string) {
-  // if  heading is already in md and append to the end of it
-  const testRegex = new RegExp(`(^|\\n)#\\s?${heading}\\s*\\n`, 'i');
-  const replaceRegex = new RegExp(`((\\n|^)#\\s*${heading}\\s*(\\n|$)(?:.|\\n)*?)(\\n#|$)`, 'i');
-  if (testRegex.test(md)) {
-    return md.replace(replaceRegex, `$1\n\n${content}\n$4`);
-  } else {
-    // else append heading itself
-    const br = md === '' || md.endsWith('\n\n') ? '' : md.endsWith('\n') ? '\n' : '\n\n';
-    return `${md}${br}# ${heading}\n\n${content}`;
-  }
+    throw new Error("STUB");
 }
 
 export const mergeObjects = (target: any, ...sources: any[]): any => {
@@ -92,16 +64,7 @@ export const mergeObjects = (target: any, ...sources: any[]): any => {
 
   if (isMergebleObject(target) && isMergebleObject(source)) {
     Object.keys(source).forEach((key: string) => {
-      if (Object.prototype.hasOwnProperty.call(source, key) && key !== '__proto__') {
-        if (isMergebleObject(source[key])) {
-          if (!target[key]) {
-            target[key] = {};
-          }
-          mergeObjects(target[key], source[key]);
-        } else {
-          target[key] = source[key];
-        }
-      }
+        throw new Error("STUB");
     });
   }
 
@@ -122,21 +85,11 @@ const isMergebleObject = (item): boolean => {
  * the regex codes are referenced with https://gist.github.com/mathewbyrne/1280286
  */
 export function safeSlugify(value: string): string {
-  return (
-    slugify(value) ||
-    value
-      .toString()
-      .toLowerCase()
-      .replace(/\s+/g, '-') // Replace spaces with -
-      .replace(/&/g, '-and-') // Replace & with 'and'
-      .replace(/\--+/g, '-') // Replace multiple - with single -
-      .replace(/^-+/, '') // Trim - from start of text
-      .replace(/-+$/, '')
-  ); // Trim - from end of text
+    throw new Error("STUB");
 }
 
 export function isAbsoluteUrl(url: string) {
-  return /(?:^[a-z][a-z0-9+.-]*:|\/\/)/i.test(url);
+    throw new Error("STUB");
 }
 
 /**
@@ -144,27 +97,7 @@ export function isAbsoluteUrl(url: string) {
  * e.g. resolveUrl('http://test.com:{port}', 'path') results in http://test.com:{port}/path
  */
 export function resolveUrl(url: string, to: string) {
-  let res;
-  if (to.startsWith('//')) {
-    try {
-      res = `${new URL(url).protocol || 'https:'}${to}`;
-    } catch {
-      res = `https:${to}`;
-    }
-  } else if (isAbsoluteUrl(to)) {
-    res = to;
-  } else if (!to.startsWith('/')) {
-    res = stripTrailingSlash(url) + '/' + to;
-  } else {
-    try {
-      const urlObj = new URL(url);
-      urlObj.pathname = to;
-      res = urlObj.href;
-    } catch {
-      res = to;
-    }
-  }
-  return stripTrailingSlash(res);
+    throw new Error("STUB");
 }
 
 export function getBasePath(serverUrl: string): string {
@@ -177,19 +110,11 @@ export function getBasePath(serverUrl: string): string {
 }
 
 export function titleize(text: string) {
-  return text.charAt(0).toUpperCase() + text.slice(1);
+    throw new Error("STUB");
 }
 
 export function removeQueryStringAndHash(serverUrl: string): string {
-  try {
-    const url = parseURL(serverUrl);
-    url.search = '';
-    url.hash = '';
-    return url.toString();
-  } catch (e) {
-    // when using with redoc-cli serverUrl can be empty resulting in crash
-    return serverUrl;
-  }
+    throw new Error("STUB");
 }
 
 function parseURL(url: string) {
@@ -202,14 +127,11 @@ function parseURL(url: string) {
 }
 
 export function escapeHTMLAttrChars(str: string): string {
-  return str.replace(/["\\]/g, '\\$&');
+    throw new Error("STUB");
 }
 
 export function unescapeHTMLChars(str: string): string {
-  return str
-    .replace(/&#(\d+);/g, (_m, code) => String.fromCharCode(parseInt(code, 10)))
-    .replace(/&amp;/g, '&')
-    .replace(/&quot;/g, '"');
+    throw new Error("STUB");
 }
 
 export function isArray(value: unknown): value is any[] {

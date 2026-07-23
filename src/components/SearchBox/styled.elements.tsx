@@ -8,61 +8,45 @@ export const SearchWrap = styled.div`
   padding: 5px 0;
 `;
 
-export const SearchInput = styled.input.attrs(() => ({
-  className: 'search-input',
-}))`
-  width: calc(100% - ${props => props.theme.spacing.unit * 8}px);
+export const SearchInput = styled.input.attrs(() => { throw new Error("STUB"); })`
+  width: calc(100% - ${props => { throw new Error("STUB"); }}px);
   box-sizing: border-box;
-  margin: 0 ${props => props.theme.spacing.unit * 4}px;
-  padding: 5px ${props => props.theme.spacing.unit * 2}px 5px
-    ${props => props.theme.spacing.unit * 4}px;
+  margin: 0 ${props => { throw new Error("STUB"); }}px;
+  padding: 5px ${props => { throw new Error("STUB"); }}px 5px
+    ${props => { throw new Error("STUB"); }}px;
   border: 0;
   border-bottom: 1px solid
     ${({ theme }) =>
-      (getLuminance(theme.sidebar.backgroundColor) > 0.5 ? darken : lighten)(
-        0.1,
-        theme.sidebar.backgroundColor,
-      )};
-  font-family: ${({ theme }) => theme.typography.fontFamily};
+      { throw new Error("STUB"); }};
+  font-family: ${({ theme }) => { throw new Error("STUB"); }};
   font-weight: bold;
   font-size: 13px;
-  color: ${props => props.theme.sidebar.textColor};
+  color: ${props => { throw new Error("STUB"); }};
   background-color: transparent;
   outline: none;
 `;
 
-export const SearchIcon = styled((props: { className?: string }) => (
-  <svg
-    className={props.className}
-    version="1.1"
-    viewBox="0 0 1000 1000"
-    x="0px"
-    xmlns="http://www.w3.org/2000/svg"
-    y="0px"
-  >
-    <path d="M968.2,849.4L667.3,549c83.9-136.5,66.7-317.4-51.7-435.6C477.1-25,252.5-25,113.9,113.4c-138.5,138.3-138.5,362.6,0,501C219.2,730.1,413.2,743,547.6,666.5l301.9,301.4c43.6,43.6,76.9,14.9,104.2-12.4C981,928.3,1011.8,893,968.2,849.4z M524.5,522c-88.9,88.7-233,88.7-321.8,0c-88.9-88.7-88.9-232.6,0-321.3c88.9-88.7,233-88.7,321.8,0C613.4,289.4,613.4,433.3,524.5,522z" />
-  </svg>
-)).attrs({
+export const SearchIcon = styled((props: { className?: string }) => { throw new Error("STUB"); }).attrs({
   className: 'search-icon',
 })`
   position: absolute;
-  left: ${props => props.theme.spacing.unit * 4}px;
+  left: ${props => { throw new Error("STUB"); }}px;
   height: 1.8em;
   width: 0.9em;
 
   path {
-    fill: ${props => props.theme.sidebar.textColor};
+    fill: ${props => { throw new Error("STUB"); }};
   }
 `;
 
 export const SearchResultsBox = styled.div`
-  padding: ${props => props.theme.spacing.unit}px 0;
-  background-color: ${({ theme }) => darken(0.05, theme.sidebar.backgroundColor)}};
-  color: ${props => props.theme.sidebar.textColor};
+  padding: ${props => { throw new Error("STUB"); }}px 0;
+  background-color: ${({ theme }) => { throw new Error("STUB"); }}};
+  color: ${props => { throw new Error("STUB"); }};
   min-height: 150px;
   max-height: 250px;
-  border-top: ${({ theme }) => darken(0.1, theme.sidebar.backgroundColor)}};
-  border-bottom: ${({ theme }) => darken(0.1, theme.sidebar.backgroundColor)}};
+  border-top: ${({ theme }) => { throw new Error("STUB"); }}};
+  border-bottom: ${({ theme }) => { throw new Error("STUB"); }}};
   margin-top: 10px;
   line-height: 1.4;
   font-size: 0.9em;
@@ -77,7 +61,7 @@ export const SearchResultsBox = styled.div`
 
     &:hover,
     &.active {
-      background-color: ${({ theme }) => darken(0.1, theme.sidebar.backgroundColor)};
+      background-color: ${({ theme }) => { throw new Error("STUB"); }};
     }
 
     > svg {
@@ -89,9 +73,9 @@ export const SearchResultsBox = styled.div`
 export const ClearIcon = styled.i`
   position: absolute;
   display: inline-block;
-  width: ${props => props.theme.spacing.unit * 2}px;
+  width: ${props => { throw new Error("STUB"); }}px;
   text-align: center;
-  right: ${props => props.theme.spacing.unit * 4}px;
+  right: ${props => { throw new Error("STUB"); }}px;
   line-height: 2em;
   vertical-align: middle;
   margin-right: 2px;

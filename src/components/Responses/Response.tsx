@@ -10,38 +10,5 @@ export interface ResponseViewProps {
 }
 
 export const ResponseView = observer(({ response }: ResponseViewProps): React.ReactElement => {
-  const { extensions, headers, type, summary, description, code, expanded, content } = response;
-
-  const mimes = React.useMemo<MediaTypeModel[]>(
-    () =>
-      content === undefined ? [] : content.mediaTypes.filter(mime => mime.schema !== undefined),
-    [content],
-  );
-
-  const empty = React.useMemo<boolean>(
-    () =>
-      (!extensions || Object.keys(extensions).length === 0) &&
-      headers.length === 0 &&
-      mimes.length === 0 &&
-      !description,
-    [extensions, headers, mimes, description],
-  );
-
-  return (
-    <div>
-      <StyledResponseTitle
-        onClick={() => response.toggle()}
-        type={type}
-        empty={empty}
-        title={summary || ''}
-        code={code}
-        opened={expanded}
-      />
-      {expanded && !empty && (
-        <ResponseDetailsWrap>
-          <ResponseDetails response={response} />
-        </ResponseDetailsWrap>
-      )}
-    </div>
-  );
+    throw new Error("STUB");
 });

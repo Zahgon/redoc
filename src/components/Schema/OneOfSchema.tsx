@@ -33,7 +33,7 @@ export class OneOfButton extends React.Component<OneOfButtonProps> {
   }
 
   activateOneOf = () => {
-    this.props.schema.activateOneOf(this.props.idx);
+      throw new Error("STUB");
   };
 }
 
@@ -54,9 +54,7 @@ export class OneOfSchema extends React.Component<SchemaProps> {
       <div>
         <OneOfLabel> {schema.oneOfType} </OneOfLabel>
         <OneOfList>
-          {oneOf.map((subSchema, idx) => (
-            <OneOfButton key={subSchema.pointer} schema={schema} subSchema={subSchema} idx={idx} />
-          ))}
+          {oneOf.map((subSchema, idx) => { throw new Error("STUB"); })}
         </OneOfList>
         <div>
           {oneOf[schema.activeOneOf].deprecated && <Badge type="warning">Deprecated</Badge>}

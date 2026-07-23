@@ -10,42 +10,22 @@ export class MarkerService {
   }
 
   delete(el: Element) {
-    this.map.delete(el);
+      throw new Error("STUB");
   }
 
   addOnly(elements: Element[]) {
-    this.map.forEach((inst, elem) => {
-      if (elements.indexOf(elem) === -1) {
-        inst.unmark();
-        this.map.delete(elem);
-      }
-    });
-
-    for (const el of elements) {
-      if (!this.map.has(el)) {
-        this.map.set(el, new Mark(el as HTMLElement));
-      }
-    }
+      throw new Error("STUB");
   }
 
   clearAll() {
-    this.unmark();
-    this.map.clear();
+      throw new Error("STUB");
   }
 
   mark(term?: string) {
-    if (!term && !this.prevTerm) {
-      return;
-    }
-    this.map.forEach(val => {
-      val.unmark();
-      val.mark(term || this.prevTerm);
-    });
-    this.prevTerm = term || this.prevTerm;
+      throw new Error("STUB");
   }
 
   unmark() {
-    this.map.forEach(val => val.unmark());
-    this.prevTerm = '';
+      throw new Error("STUB");
   }
 }

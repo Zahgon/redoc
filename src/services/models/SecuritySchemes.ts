@@ -24,35 +24,7 @@ export class SecuritySchemeModel {
   };
 
   constructor(parser: OpenAPIParser, id: string, scheme: Referenced<OpenAPISecurityScheme>) {
-    const { resolved: info } = parser.deref(scheme);
-    this.id = id;
-    this.sectionId = SECURITY_SCHEMES_SECTION_PREFIX + id;
-    this.type = info.type;
-    this.displayName = info['x-displayName'] || id;
-    this.description = info.description || '';
-    if (info.type === 'apiKey') {
-      this.apiKey = {
-        name: info.name!,
-        in: info.in,
-      };
-    }
-
-    if (info.type === 'http') {
-      this.http = {
-        scheme: info.scheme!,
-        bearerFormat: info.bearerFormat,
-      };
-    }
-
-    if (info.type === 'openIdConnect') {
-      this.openId = {
-        connectUrl: info.openIdConnectUrl!,
-      };
-    }
-
-    if (info.type === 'oauth2' && info.flows) {
-      this.flows = info.flows;
-    }
+      throw new Error("STUB");
   }
 }
 
@@ -60,9 +32,6 @@ export class SecuritySchemesModel {
   schemes: SecuritySchemeModel[];
 
   constructor(parser: OpenAPIParser) {
-    const schemes = (parser.spec.components && parser.spec.components.securitySchemes) || {};
-    this.schemes = Object.keys(schemes).map(
-      name => new SecuritySchemeModel(parser, name, schemes[name]),
-    );
+      throw new Error("STUB");
   }
 }

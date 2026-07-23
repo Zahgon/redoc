@@ -7,26 +7,7 @@ import styled from '../../styled-components';
 import { OptionsContext } from '../OptionsProvider';
 
 export function ArrayItemDetails({ schema }: { schema: SchemaModel }) {
-  const { hideSchemaPattern } = React.useContext(OptionsContext);
-  if (
-    !schema ||
-    ((!schema?.pattern || hideSchemaPattern) &&
-      !schema.items &&
-      !schema.displayFormat &&
-      !schema.constraints?.length) // return null for cases where all constraints are empty
-  ) {
-    return null;
-  }
-
-  return (
-    <Wrapper>
-      [ items
-      {schema.displayFormat && <TypeFormat> &lt;{schema.displayFormat} &gt;</TypeFormat>}
-      <ConstraintsView constraints={schema.constraints} />
-      <Pattern schema={schema} />
-      {schema.items && <ArrayItemDetails schema={schema.items} />} ]
-    </Wrapper>
-  );
+    throw new Error("STUB");
 }
 
 const Wrapper = styled(TypePrefix)`

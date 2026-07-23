@@ -20,9 +20,7 @@ export class ResponseHeaders extends React.PureComponent<ResponseHeadersProps> {
       <PropertiesTable>
         <HeadersCaption> Response Headers </HeadersCaption>
         <tbody>
-          {mapWithLast(headers, (header, isLast) => (
-            <Field isLast={isLast} key={header.name} field={header} showExamples={true} />
-          ))}
+          {mapWithLast(headers, (header, isLast) => { throw new Error("STUB"); })}
         </tbody>
       </PropertiesTable>
     );

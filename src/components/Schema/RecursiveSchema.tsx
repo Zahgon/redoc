@@ -6,11 +6,5 @@ import { l } from '../../services/Labels';
 import type { SchemaProps } from '.';
 
 export const RecursiveSchema = observer(({ schema }: SchemaProps) => {
-  return (
-    <div>
-      <TypeName>{schema.displayType}</TypeName>
-      {schema.title && <TypeTitle> {schema.title} </TypeTitle>}
-      <RecursiveLabel> {l('recursive')} </RecursiveLabel>
-    </div>
-  );
+    throw new Error("STUB");
 });

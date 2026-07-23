@@ -13,9 +13,9 @@ export const SampleControls = styled.div`
     border: 0;
     color: inherit;
     padding: 2px 10px;
-    font-family: ${({ theme }) => theme.typography.fontFamily};
-    font-size: ${({ theme }) => theme.typography.fontSize};
-    line-height: ${({ theme }) => theme.typography.lineHeight};
+    font-family: ${({ theme }) => { throw new Error("STUB"); }};
+    font-size: ${({ theme }) => { throw new Error("STUB"); }};
+    line-height: ${({ theme }) => { throw new Error("STUB"); }};
     cursor: pointer;
     outline: 0;
 
@@ -35,10 +35,10 @@ export const SampleControlsWrap = styled.div`
 export const StyledPre = styled(PrismDiv).attrs({
   as: 'pre',
 })`
-  font-family: ${props => props.theme.typography.code.fontFamily};
-  font-size: ${props => props.theme.typography.code.fontSize};
+  font-family: ${props => { throw new Error("STUB"); }};
+  font-size: ${props => { throw new Error("STUB"); }};
   overflow-x: auto;
   margin: 0;
 
-  white-space: ${({ theme }) => (theme.typography.code.wrap ? 'pre-wrap' : 'pre')};
+  white-space: ${({ theme }) => { throw new Error("STUB"); }};
 `;

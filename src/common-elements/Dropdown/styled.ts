@@ -10,10 +10,10 @@ export const Dropdown = styled(DropdownComponent)<{
     min-width: 100px;
     outline: none;
     display: inline-block;
-    font-family: ${props => props.theme.typography.headings.fontFamily};
-    color: ${({ theme }) => theme.colors.text.primary};
+    font-family: ${props => { throw new Error("STUB"); }};
+    color: ${({ theme }) => { throw new Error("STUB"); }};
     vertical-align: bottom;
-    width: ${({ fullWidth }) => (fullWidth ? '100%' : 'auto')};
+    width: ${({ fullWidth }) => { throw new Error("STUB"); }};
     text-transform: none;
     padding: 0 22px 0 4px;
 
@@ -35,7 +35,7 @@ export const Dropdown = styled(DropdownComponent)<{
     appearance: none;
     cursor: pointer;
 
-    color: ${({ theme }) => theme.colors.text.primary};
+    color: ${({ theme }) => { throw new Error("STUB"); }};
     line-height: inherit;
     font-family: inherit;
   }
@@ -51,7 +51,7 @@ export const Dropdown = styled(DropdownComponent)<{
   width: auto;
   background: white;
   color: #263238;
-  font-family: ${props => props.theme.typography.headings.fontFamily};
+  font-family: ${props => { throw new Error("STUB"); }};
   font-size: 0.929em;
   line-height: 1.5em;
   cursor: pointer;
@@ -59,9 +59,9 @@ export const Dropdown = styled(DropdownComponent)<{
 
   &:hover,
   &:focus-within {
-    border: 1px solid ${props => props.theme.colors.primary.main};
-    color: ${props => props.theme.colors.primary.main};
-    box-shadow: 0px 0px 0px 1px ${props => props.theme.colors.primary.main};
+    border: 1px solid ${props => { throw new Error("STUB"); }};
+    color: ${props => { throw new Error("STUB"); }};
+    box-shadow: 0px 0px 0px 1px ${props => { throw new Error("STUB"); }};
   }
 `;
 
@@ -80,8 +80,8 @@ export const SimpleDropdown = styled(Dropdown)`
     border: none;
     box-shadow: none;
     label {
-      color: ${props => props.theme.colors.primary.main};
-      text-shadow: 0px 0px 0px ${props => props.theme.colors.primary.main};
+      color: ${props => { throw new Error("STUB"); }};
+      text-shadow: 0px 0px 0px ${props => { throw new Error("STUB"); }};
     }
   }
 `;

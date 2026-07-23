@@ -9,7 +9,7 @@ const renderer = new marked.Renderer();
 marked.setOptions({
   renderer,
   highlight: (str, lang) => {
-    return highlight(str, lang);
+      throw new Error("STUB");
   },
 });
 
@@ -22,21 +22,16 @@ export const MDX_COMPONENT_REGEXP = '(?:^ {0,3}<({component})([\\s\\S]*?)>([\\s\
 export const COMPONENT_REGEXP = '(?:' + LEGACY_REGEXP + '|' + MDX_COMPONENT_REGEXP + ')';
 
 export function buildComponentComment(name: string) {
-  return `<!-- ReDoc-Inject: <${name}> -->`;
+    throw new Error("STUB");
 }
 
 export class MarkdownRenderer {
   static containsComponent(rawText: string, componentName: string) {
-    const compRegexp = new RegExp(COMPONENT_REGEXP.replace(/{component}/g, componentName), 'gmi');
-    return compRegexp.test(rawText);
+      throw new Error("STUB");
   }
 
   static getTextBeforeHading(md: string, heading: string): string {
-    const headingLinePos = md.search(new RegExp(`^##?\\s+${heading}`, 'm'));
-    if (headingLinePos > -1) {
-      return md.substring(0, headingLinePos);
-    }
-    return md;
+      throw new Error("STUB");
   }
 
   headings: MarkdownHeading[] = [];
@@ -47,13 +42,7 @@ export class MarkdownRenderer {
   private originalHeadingRule: typeof marked.Renderer.prototype.heading;
 
   constructor(public options?: RedocNormalizedOptions, public parentId?: string) {
-    this.parentId = parentId;
-    this.parser = new marked.Parser();
-    this.headingEnhanceRenderer = new marked.Renderer();
-    this.originalHeadingRule = this.headingEnhanceRenderer.heading.bind(
-      this.headingEnhanceRenderer,
-    );
-    this.headingEnhanceRenderer.heading = this.headingRule;
+      throw new Error("STUB");
   }
 
   saveHeading(
@@ -62,59 +51,15 @@ export class MarkdownRenderer {
     container: MarkdownHeading[] = this.headings,
     parentId?: string,
   ): MarkdownHeading {
-    name = unescapeHTMLChars(name);
-    const item: MarkdownHeading = {
-      id: parentId
-        ? `${parentId}/${safeSlugify(name)}`
-        : `${this.parentId || 'section'}/${safeSlugify(name)}`,
-      name,
-      level,
-      items: [],
-    };
-    container.push(item);
-    return item;
+      throw new Error("STUB");
   }
 
   flattenHeadings(container?: MarkdownHeading[]): MarkdownHeading[] {
-    if (container === undefined) {
-      return [];
-    }
-    const res: MarkdownHeading[] = [];
-    for (const heading of container) {
-      res.push(heading);
-      res.push(...this.flattenHeadings(heading.items));
-    }
-    return res;
+      throw new Error("STUB");
   }
 
   attachHeadingsDescriptions(rawText: string) {
-    const buildRegexp = (heading: MarkdownHeading) => {
-      return new RegExp(
-        `##?\\s+${heading.name.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')}\s*(\n|\r\n|$|\s*)`,
-      );
-    };
-
-    const flatHeadings = this.flattenHeadings(this.headings);
-    if (flatHeadings.length < 1) {
-      return;
-    }
-    let prevHeading = flatHeadings[0];
-    let prevRegexp = buildRegexp(prevHeading);
-    let prevPos = rawText.search(prevRegexp);
-    for (let i = 1; i < flatHeadings.length; i++) {
-      const heading = flatHeadings[i];
-      const regexp = buildRegexp(heading);
-      const currentPos = rawText.substr(prevPos + 1).search(regexp) + prevPos + 1;
-      prevHeading.description = rawText
-        .substring(prevPos, currentPos)
-        .replace(prevRegexp, '')
-        .trim();
-
-      prevHeading = heading;
-      prevRegexp = regexp;
-      prevPos = currentPos;
-    }
-    prevHeading.description = rawText.substring(prevPos).replace(prevRegexp, '').trim();
+      throw new Error("STUB");
   }
 
   headingRule = (
@@ -123,17 +68,7 @@ export class MarkdownRenderer {
     raw: string,
     slugger: marked.Slugger,
   ): string => {
-    if (level === 1) {
-      this.currentTopHeading = this.saveHeading(text, level);
-    } else if (level === 2) {
-      this.saveHeading(
-        text,
-        level,
-        this.currentTopHeading && this.currentTopHeading.items,
-        this.currentTopHeading && this.currentTopHeading.id,
-      );
-    }
-    return this.originalHeadingRule(text, level, raw, slugger);
+      throw new Error("STUB");
   };
 
   renderMd(rawText: string, extractHeadings: boolean = false): string {
@@ -145,11 +80,7 @@ export class MarkdownRenderer {
   }
 
   extractHeadings(rawText: string): MarkdownHeading[] {
-    this.renderMd(rawText, true);
-    this.attachHeadingsDescriptions(rawText);
-    const res = this.headings;
-    this.headings = [];
-    return res;
+      throw new Error("STUB");
   }
 
   // regexp-based 👎: remark is slow and too big so for now using marked + regexps soup

@@ -23,22 +23,19 @@ export class MenuItem extends React.Component<MenuItemProps> {
   ref = React.createRef<HTMLLabelElement>();
 
   activate = (evt: React.MouseEvent<HTMLElement>) => {
-    this.props.onActivate!(this.props.item);
-    evt.stopPropagation();
+      throw new Error("STUB");
   };
 
   componentDidMount() {
-    this.scrollIntoViewIfActive();
+      throw new Error("STUB");
   }
 
   componentDidUpdate() {
-    this.scrollIntoViewIfActive();
+      throw new Error("STUB");
   }
 
   scrollIntoViewIfActive() {
-    if (this.props.item.active && this.ref.current) {
-      scrollIntoViewIfNeeded(this.ref.current);
-    }
+      throw new Error("STUB");
   }
 
   render() {
@@ -48,11 +45,7 @@ export class MenuItem extends React.Component<MenuItemProps> {
         tabIndex={0}
         onClick={this.activate}
         onKeyDown={evt => {
-          // Space or Enter key will activate the menu item
-          if (evt.key === 'Enter' || evt.key === ' ') {
-            this.props.onActivate!(this.props.item);
-            evt.stopPropagation();
-          }
+            throw new Error("STUB");
         }}
         depth={item.depth}
         data-item-id={item.id}
@@ -93,40 +86,5 @@ export interface OperationMenuItemContentProps {
 }
 
 export const OperationMenuItemContent = observer((props: OperationMenuItemContentProps) => {
-  const { item } = props;
-  const ref = React.createRef<HTMLLabelElement>();
-  const { showWebhookVerb } = React.useContext(OptionsContext);
-
-  React.useEffect(() => {
-    if (props.item.active && ref.current) {
-      scrollIntoViewIfNeeded(ref.current);
-    }
-  }, [props.item.active, ref]);
-
-  return (
-    <MenuItemLabel
-      $depth={item.depth}
-      $active={item.active}
-      $deprecated={item.deprecated}
-      ref={ref}
-    >
-      {item.badges &&
-        item.badges?.map(({ name, color }) => (
-          <OperationBadge type="badge" color={color} key={name}>
-            {name}
-          </OperationBadge>
-        ))}
-      {item.isWebhook ? (
-        <OperationBadge type="hook">
-          {showWebhookVerb ? item.httpVerb : l('webhook')}
-        </OperationBadge>
-      ) : (
-        <OperationBadge type={item.httpVerb}>{shortenHTTPVerb(item.httpVerb)}</OperationBadge>
-      )}
-      <MenuItemTitle tabIndex={0} width="calc(100% - 38px)">
-        {item.sidebarLabel}
-        {props.children}
-      </MenuItemTitle>
-    </MenuItemLabel>
-  );
+    throw new Error("STUB");
 });

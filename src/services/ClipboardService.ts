@@ -9,30 +9,11 @@ export class ClipboardService {
   }
 
   static selectElement(element: any): void {
-    let range;
-    let selection;
-    if ((document.body as any).createTextRange) {
-      range = (document.body as any).createTextRange();
-      range.moveToElementText(element);
-      range.select();
-    } else if (document.createRange && window.getSelection) {
-      selection = window.getSelection();
-      range = document.createRange();
-      range.selectNodeContents(element);
-      selection.removeAllRanges();
-      selection.addRange(range);
-    }
+      throw new Error("STUB");
   }
 
   static deselect(): void {
-    if ((document as any).selection) {
-      (document as any).selection.empty();
-    } else if (window.getSelection) {
-      const selection = window.getSelection();
-      if (selection) {
-        selection.removeAllRanges();
-      }
-    }
+      throw new Error("STUB");
   }
 
   static copySelected(): boolean {
@@ -46,12 +27,7 @@ export class ClipboardService {
   }
 
   static copyElement(element: any): boolean {
-    ClipboardService.selectElement(element);
-    const res = ClipboardService.copySelected();
-    if (res) {
-      ClipboardService.deselect();
-    }
-    return res;
+      throw new Error("STUB");
   }
 
   static copyCustom(text: string): boolean {

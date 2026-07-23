@@ -23,25 +23,7 @@ function ResponseTitleComponent({
   className,
   onClick,
 }: ResponseTitleProps): React.ReactElement {
-  return (
-    <button
-      className={className}
-      onClick={(!empty && onClick) || undefined}
-      aria-expanded={opened}
-      disabled={empty}
-    >
-      {!empty && (
-        <ShelfIcon
-          size={'1.5em'}
-          color={type}
-          direction={opened ? 'down' : 'right'}
-          float={'left'}
-        />
-      )}
-      <Code>{code} </Code>
-      <Markdown compact={true} inline={true} source={title} />
-    </button>
-  );
+    throw new Error("STUB");
 }
 
 export const ResponseTitle = React.memo<ResponseTitleProps>(ResponseTitleComponent);

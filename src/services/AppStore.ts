@@ -38,13 +38,7 @@ export class AppStore {
    */
   // TODO:
   static fromJS(state: StoreState): AppStore {
-    const inst = new AppStore(state.spec.data, state.spec.url, state.options, false);
-    inst.menu.activeItemIdx = state.menu.activeItemIdx || 0;
-    inst.menu.activate(inst.menu.flatItems[inst.menu.activeItemIdx]);
-    if (!inst.options.disableSearch) {
-      inst.search!.load(state.searchIndex);
-    }
-    return inst;
+      throw new Error("STUB");
   }
 
   menu: MenuStore;
@@ -63,31 +57,11 @@ export class AppStore {
     options: RedocRawOptions = {},
     createSearchIndex: boolean = true,
   ) {
-    this.rawOptions = options;
-    this.options = new RedocNormalizedOptions(options, DEFAULT_OPTIONS);
-    this.scroll = new ScrollService(this.options);
-
-    // update position statically based on hash (in case of SSR)
-    MenuStore.updateOnHistory(history.currentId, this.scroll);
-
-    this.spec = new SpecStore(spec, specUrl, this.options);
-    this.menu = new MenuStore(this.spec, this.scroll, history);
-
-    if (!this.options.disableSearch) {
-      this.search = new SearchStore();
-      if (createSearchIndex) {
-        this.search.indexItems(this.menu.items);
-      }
-
-      this.disposer = observe(this.menu, 'activeItemIdx', change => {
-        this.updateMarkOnMenu(change.newValue as number);
-      });
-    }
+      throw new Error("STUB");
   }
 
   onDidMount() {
-    this.menu.updateOnHistory();
-    this.updateMarkOnMenu(this.menu.activeItemIdx);
+      throw new Error("STUB");
   }
 
   dispose() {
@@ -121,28 +95,7 @@ export class AppStore {
   }
 
   private updateMarkOnMenu(idx: number) {
-    const start = Math.max(0, idx);
-    const end = Math.min(this.menu.flatItems.length, start + 5);
-
-    const elements: Element[] = [];
-    for (let i = start; i < end; i++) {
-      const elem = this.menu.getElementAt(i);
-      if (!elem) {
-        continue;
-      }
-      elements.push(elem);
-    }
-
-    if (idx === -1 && IS_BROWSER) {
-      const $description = document.querySelector('[data-role="redoc-description"]');
-      const $summary = document.querySelector('[data-role="redoc-summary"]');
-
-      if ($description) elements.push($description);
-      if ($summary) elements.push($summary);
-    }
-
-    this.marker.addOnly(elements);
-    this.marker.mark();
+      throw new Error("STUB");
   }
 }
 
@@ -150,22 +103,15 @@ const DEFAULT_OPTIONS: RedocRawOptions = {
   allowedMdComponents: {
     [SECURITY_DEFINITIONS_JSX_NAME]: {
       component: SecurityDefs,
-      propsSelector: (store: AppStore) => ({
-        securitySchemes: store.spec.securitySchemes,
-      }),
+      propsSelector: (store: AppStore) => { throw new Error("STUB"); },
     },
     [OLD_SECURITY_DEFINITIONS_JSX_NAME]: {
       component: SecurityDefs,
-      propsSelector: (store: AppStore) => ({
-        securitySchemes: store.spec.securitySchemes,
-      }),
+      propsSelector: (store: AppStore) => { throw new Error("STUB"); },
     },
     [SCHEMA_DEFINITION_JSX_NAME]: {
       component: SchemaDefinition,
-      propsSelector: (store: AppStore) => ({
-        parser: store.spec.parser,
-        options: store.options,
-      }),
+      propsSelector: (store: AppStore) => { throw new Error("STUB"); },
     },
   },
 };

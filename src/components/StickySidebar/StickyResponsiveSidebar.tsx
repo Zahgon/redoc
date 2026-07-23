@@ -26,8 +26,8 @@ export interface StickySidebarState {
 const stickyfill = Stickyfill && Stickyfill();
 
 const StyledStickySidebar = styled.div<{ $open?: boolean }>`
-  width: ${props => props.theme.sidebar.width};
-  background-color: ${props => props.theme.sidebar.backgroundColor};
+  width: ${props => { throw new Error("STUB"); }};
+  background-color: ${props => { throw new Error("STUB"); }};
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -44,8 +44,8 @@ const StyledStickySidebar = styled.div<{ $open?: boolean }>`
     position: fixed;
     z-index: 20;
     width: 100%;
-    background: ${({ theme }) => theme.sidebar.backgroundColor};
-    display: ${props => (props.$open ? 'flex' : 'none')};
+    background: ${({ theme }) => { throw new Error("STUB"); }};
+    display: ${props => { throw new Error("STUB"); }};
   `};
 
   @media print {
@@ -56,8 +56,8 @@ const StyledStickySidebar = styled.div<{ $open?: boolean }>`
 const FloatingButton = styled.div`
   outline: none;
   user-select: none;
-  background-color: ${({ theme }) => theme.fab.backgroundColor};
-  color: ${props => props.theme.colors.primary.main};
+  background-color: ${({ theme }) => { throw new Error("STUB"); }};
+  color: ${props => { throw new Error("STUB"); }};
   display: none;
   cursor: pointer;
   position: fixed;
@@ -75,7 +75,7 @@ const FloatingButton = styled.div`
   height: 60px;
   padding: 0 20px;
   svg {
-    color: ${({ theme }) => theme.fab.color};
+    color: ${({ theme }) => { throw new Error("STUB"); }};
   }
 
   @media print {
@@ -95,31 +95,15 @@ export class StickyResponsiveSidebar extends React.Component<
   stickyElement: Element;
 
   componentDidMount() {
-    if (stickyfill) {
-      stickyfill.add(this.stickyElement);
-    }
-
-    // rerender when hydrating from SSR
-    // see https://github.com/facebook/react/issues/8017#issuecomment-256351955
-    this.setState({
-      offsetTop: this.getScrollYOffset(this.context),
-    });
+      throw new Error("STUB");
   }
 
   componentWillUnmount() {
-    if (stickyfill) {
-      stickyfill.remove(this.stickyElement);
-    }
+      throw new Error("STUB");
   }
 
   getScrollYOffset(options: RedocNormalizedOptions) {
-    let top;
-    if (this.props.scrollYOffset !== undefined) {
-      top = RedocNormalizedOptions.normalizeScrollYOffset(this.props.scrollYOffset)();
-    } else {
-      top = options.scrollYOffset();
-    }
-    return top + 'px';
+      throw new Error("STUB");
   }
 
   render() {
@@ -138,7 +122,7 @@ export class StickyResponsiveSidebar extends React.Component<
           }}
           // tslint:disable-next-line
           ref={el => {
-            this.stickyElement = el as any;
+              throw new Error("STUB");
           }}
         >
           {this.props.children}
@@ -153,6 +137,6 @@ export class StickyResponsiveSidebar extends React.Component<
   }
 
   private toggleNavMenu = () => {
-    this.props.menu.toggleSidebar();
+      throw new Error("STUB");
   };
 }

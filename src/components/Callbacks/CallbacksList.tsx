@@ -20,11 +20,7 @@ export class CallbacksList extends React.PureComponent<CallbacksListProps> {
       <div>
         <CallbacksHeader> Callbacks </CallbacksHeader>
         {callbacks.map(callback => {
-          return callback.operations.map((operation, index) => {
-            return (
-              <CallbackOperation key={`${callback.name}_${index}`} callbackOperation={operation} />
-            );
-          });
+            throw new Error("STUB");
         })}
       </div>
     );
@@ -35,6 +31,6 @@ const CallbacksHeader = styled.h3`
   font-size: 1.3em;
   padding: 0.2em 0;
   margin: 3em 0 1.1em;
-  color: ${({ theme }) => theme.colors.text.primary};
+  color: ${({ theme }) => { throw new Error("STUB"); }};
   font-weight: normal;
 `;

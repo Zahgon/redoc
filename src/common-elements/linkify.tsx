@@ -34,41 +34,14 @@ export const linkifyMixin = className => css`
 `;
 
 const isModifiedEvent = event =>
-  !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
+  { throw new Error("STUB"); };
 
 export function Link(props: { to: string; className?: string; children?: any }) {
-  const store = React.useContext(StoreContext);
-  const clickHandler = React.useCallback(
-    (event: React.MouseEvent<HTMLAnchorElement>) => {
-      if (!store) return;
-      navigate(store.menu.history, event, props.to);
-    },
-    [store, props.to],
-  );
-
-  if (!store) return null;
-
-  return (
-    <a
-      className={props.className}
-      href={store!.menu.history.linkForId(props.to)}
-      onClick={clickHandler}
-      aria-label={props.to}
-    >
-      {props.children}
-    </a>
-  );
+    throw new Error("STUB");
 }
 
 function navigate(history: HistoryService, event: React.MouseEvent<HTMLAnchorElement>, to: string) {
-  if (
-    !event.defaultPrevented && // onClick prevented default
-    event.button === 0 && // ignore everything but left clicks
-    !isModifiedEvent(event) // ignore clicks with modifier keys
-  ) {
-    event.preventDefault();
-    history.replace(encodeURI(to));
-  }
+    throw new Error("STUB");
 }
 
 const StyledShareLink = styled(Link)`
@@ -76,5 +49,5 @@ const StyledShareLink = styled(Link)`
 `;
 
 export function ShareLink(props: { to: string }) {
-  return <StyledShareLink to={props.to} />;
+    throw new Error("STUB");
 }

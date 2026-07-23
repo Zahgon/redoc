@@ -7,14 +7,14 @@ export const StyledCallbackTitle = styled(CallbackTitle)`
   border-radius: 2px;
   margin-bottom: 4px;
   line-height: 1.5em;
-  background-color: ${({ theme }) => theme.colors.gray[100]};
+  background-color: ${({ theme }) => { throw new Error("STUB"); }};
   cursor: pointer;
-  outline-color: ${({ theme }) => darken(theme.colors.tonalOffset, theme.colors.gray[100])};
+  outline-color: ${({ theme }) => { throw new Error("STUB"); }};
 `;
 
 export const CallbackDetailsWrap = styled.div`
   padding: 10px 25px;
-  background-color: ${({ theme }) => theme.colors.gray[50]};
+  background-color: ${({ theme }) => { throw new Error("STUB"); }};
   margin-bottom: 5px;
   margin-top: 5px;
 `;

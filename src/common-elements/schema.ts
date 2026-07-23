@@ -10,8 +10,8 @@ export const OneOfList = styled.div`
 export const OneOfLabel = styled.span`
   font-size: 0.9em;
   margin-right: 10px;
-  color: ${props => props.theme.colors.primary.main};
-  font-family: ${props => props.theme.typography.headings.fontFamily};
+  color: ${props => { throw new Error("STUB"); }};
+  font-family: ${props => { throw new Error("STUB"); }};
 }
 `;
 
@@ -21,38 +21,24 @@ export const OneOfButton = styled.button<{ $active: boolean; $deprecated: boolea
   margin-bottom: 5px;
   font-size: 0.8em;
   cursor: pointer;
-  border: 1px solid ${props => props.theme.colors.primary.main};
+  border: 1px solid ${props => { throw new Error("STUB"); }};
   padding: 2px 10px;
   line-height: 1.5em;
   outline: none;
   &:focus {
-    box-shadow: 0 0 0 1px ${props => props.theme.colors.primary.main};
+    box-shadow: 0 0 0 1px ${props => { throw new Error("STUB"); }};
   }
 
-  ${({ $deprecated }) => ($deprecated && deprecatedCss) || ''};
+  ${({ $deprecated }) => { throw new Error("STUB"); }};
 
   ${props => {
-    if (props.$active) {
-      return `
-      color: white;
-      background-color: ${props.theme.colors.primary.main};
-      &:focus {
-        box-shadow: none;
-        background-color: ${darken(0.15, props.theme.colors.primary.main)};
-      }
-      `;
-    } else {
-      return `
-        color: ${props.theme.colors.primary.main};
-        background-color: white;
-      `;
-    }
-  }}
+    throw new Error("STUB");
+}}
 `;
 
 export const ArrayOpenningLabel = styled.div`
   font-size: 0.9em;
-  font-family: ${props => props.theme.typography.code.fontFamily};
+  font-family: ${props => { throw new Error("STUB"); }};
   &::after {
     content: ' [';
   }
@@ -60,7 +46,7 @@ export const ArrayOpenningLabel = styled.div`
 
 export const ArrayClosingLabel = styled.div`
   font-size: 0.9em;
-  font-family: ${props => props.theme.typography.code.fontFamily};
+  font-family: ${props => { throw new Error("STUB"); }};
   &::after {
     content: ']';
   }

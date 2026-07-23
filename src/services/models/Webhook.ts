@@ -12,35 +12,10 @@ export class WebhookModel {
     options: RedocNormalizedOptions,
     infoOrRef?: Referenced<OpenAPIPath>,
   ) {
-    const { resolved: webhooks } = parser.deref<OpenAPIPath>(infoOrRef || {});
-    this.initWebhooks(parser, webhooks, options);
+      throw new Error("STUB");
   }
 
   initWebhooks(parser: OpenAPIParser, webhooks: OpenAPIPath, options: RedocNormalizedOptions) {
-    for (const webhookName of Object.keys(webhooks)) {
-      const webhook = webhooks[webhookName];
-      const operations = Object.keys(webhook).filter(isOperationName);
-      for (const operationName of operations) {
-        const operationInfo = webhook[operationName];
-        if (webhook.$ref) {
-          const resolvedWebhook = parser.deref<OpenAPIPath>(webhook || {});
-          this.initWebhooks(parser, { [operationName]: resolvedWebhook }, options);
-        }
-
-        if (!operationInfo) continue;
-        const operation = new OperationModel(
-          parser,
-          {
-            ...operationInfo,
-            httpVerb: operationName,
-          },
-          undefined,
-          options,
-          false,
-        );
-
-        this.operations.push(operation);
-      }
-    }
+      throw new Error("STUB");
   }
 }

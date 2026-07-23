@@ -7,22 +7,22 @@ const headerFontSize = {
 };
 
 export const headerCommonMixin = level => css`
-  font-family: ${({ theme }) => theme.typography.headings.fontFamily};
-  font-weight: ${({ theme }) => theme.typography.headings.fontWeight};
+  font-family: ${({ theme }) => { throw new Error("STUB"); }};
+  font-weight: ${({ theme }) => { throw new Error("STUB"); }};
   font-size: ${headerFontSize[level]};
-  line-height: ${({ theme }) => theme.typography.headings.lineHeight};
+  line-height: ${({ theme }) => { throw new Error("STUB"); }};
 `;
 
 export const H1 = styled.h1`
   ${headerCommonMixin(1)};
-  color: ${({ theme }) => theme.colors.text.primary};
+  color: ${({ theme }) => { throw new Error("STUB"); }};
 
   ${extensionsHook('H1')};
 `;
 
 export const H2 = styled.h2`
   ${headerCommonMixin(2)};
-  color: ${({ theme }) => theme.colors.text.primary};
+  color: ${({ theme }) => { throw new Error("STUB"); }};
   margin: 0 0 20px;
 
   ${extensionsHook('H2')};
@@ -30,13 +30,13 @@ export const H2 = styled.h2`
 
 export const H3 = styled.h2`
   ${headerCommonMixin(3)};
-  color: ${({ theme }) => theme.colors.text.primary};
+  color: ${({ theme }) => { throw new Error("STUB"); }};
 
   ${extensionsHook('H3')};
 `;
 
 export const RightPanelHeader = styled.h3`
-  color: ${({ theme }) => theme.rightPanel.textColor};
+  color: ${({ theme }) => { throw new Error("STUB"); }};
 
   ${extensionsHook('RightPanelHeader')};
 `;
